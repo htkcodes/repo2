@@ -436,7 +436,7 @@ html, body {
 
 .form-content input[type="checkbox"]:checked + label:after, .form-content input[type="checkbox"]:not(:checked) + label:after {
     content: '\f00c';
-    font-family: "Font Awesome 5 Free";
+    font-family: "FontAwesome";
     font-style: normal;
     font-weight: 600;
     position: absolute;
