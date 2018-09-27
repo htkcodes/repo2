@@ -57,7 +57,7 @@ html, body {
 }
 
 .website-logo .logo img.logo-size {
-    opacity: 0 !important;
+    opacity: 1 !important;
 }
 
 .website-logo-inside {
