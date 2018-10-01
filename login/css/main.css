@@ -97,7 +97,10 @@ html, body {
     min-height: 700px;
     height: 100%;
     overflow: hidden;
-    background-color: #000000;
+    background: -moz-linear-gradient(-45deg, #000428 0%, #004e92 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, #000428 0%,#004e92 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, #000428 0%,#004e92 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000428', endColorstr='#004e92',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     padding: 60px;
     text-align: center;
     z-index: 999;
@@ -451,7 +454,10 @@ html, body {
 
 .form-content input[type="checkbox"]:checked + label:before {
     border-radius: 4px;
-    background: #30324F;
+    background: -moz-linear-gradient(-45deg, #000428 0%, #004e92 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, #000428 0%,#004e92 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, #000428 0%,#004e92 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000428', endColorstr='#004e92',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 .form-content input[type="checkbox"]:not(:checked) + label:before {
@@ -683,7 +689,10 @@ html, body {
 
 .img-holder {
     width: 550px;
-    background-color: #30324F;
+    background: -moz-linear-gradient(-45deg, #000428 0%, #004e92 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, #000428 0%,#004e92 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, #000428 0%,#004e92 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000428', endColorstr='#004e92',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 .img-holder .info-holder h3 {
@@ -772,11 +781,17 @@ html, body {
 }
 
 .form-content .page-links a.active:after {
-    background-color: #30324F;
+    background: -moz-linear-gradient(-45deg, #000428 0%, #004e92 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, #000428 0%,#004e92 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, #000428 0%,#004e92 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000428', endColorstr='#004e92',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 .form-content .page-links a:hover:after, .form-content .page-links a:focus:after {
-    background-color: #30324F;
+    background: -moz-linear-gradient(-45deg, #000428 0%, #004e92 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #000428 0%,#004e92 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #000428 0%,#004e92 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000428', endColorstr='#004e92',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 .form-content input, .form-content .dropdown-toggle.btn-default {
@@ -796,7 +811,7 @@ html, body {
 
 .form-content input[type="checkbox"]:not(:checked) + label:before, .form-content input[type="radio"]:not(:checked) + label:before {
     background: transparent;
-    border: 2px solid #30324F;
+    border: 2px solid linear-gradient(135deg, #000428 0%,#004e92 100%);
 }
 
 .form-content input[type="checkbox"]:checked + label:after, .form-content input[type="checkbox"]:not(:checked) + label:after {
@@ -820,7 +835,10 @@ html, body {
 }
 
 .form-content .form-button .ibtn {
-    background-color: #30324F;
+    background: -moz-linear-gradient(-45deg, #000428 0%, #004e92 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #000428 0%,#004e92 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #000428 0%,#004e92 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000428', endColorstr='#004e92',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     color: #fff;
     -webkit-box-shadow: 0 0 0 rgba(80, 182, 255, 0.31);
     box-shadow: 0 0 0 rgba(80, 182, 255, 0.31);

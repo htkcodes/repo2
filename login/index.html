@@ -22,6 +22,9 @@
     .form-content input[type="checkbox"]:not(:checked) + label, .form-content input[type="checkbox"]:checked + label, .form-content input[type="radio"]:not(:checked) + label, .form-content input[type="radio"]:checked + label{
         color: #30324F;
     }
+    .errors{
+        color:#F71735 !important;
+    }
     </style>
 </head>
 <body>
@@ -45,6 +48,9 @@
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items">
+                        <div class="errors text-center my-3">
+                        <span>Invalid User Name or Password</span>
+                        </div>
                         <div class="page-links">
                             <a href="#" class="active">Login</a>
                         </div>
