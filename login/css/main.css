@@ -811,7 +811,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000428', end
 
 .form-content input[type="checkbox"]:not(:checked) + label:before, .form-content input[type="radio"]:not(:checked) + label:before {
     background: transparent;
-    border: 2px solid linear-gradient(135deg, #000428 0%,#004e92 100%);
+    border: 2px solid #004e92;
 }
 
 .form-content input[type="checkbox"]:checked + label:after, .form-content input[type="checkbox"]:not(:checked) + label:after {
