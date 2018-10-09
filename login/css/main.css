@@ -45,12 +45,7 @@ html, body {
     display: inline-block;
 }
 
-.website-logo .logo {
-    display: inline-block;
-    background-image: url("../images/logo-light.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-}
+
 
 .website-logo .logo img {
     width: 100px;
@@ -70,13 +65,6 @@ html, body {
 
 .website-logo-inside a {
     display: inline-block;
-}
-
-.website-logo-inside .logo {
-    display: inline-block;
-    background-image: url("../images/logo-light.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
 }
 
 .website-logo-inside .logo img {
@@ -119,13 +107,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000428', end
     display: inline-block;
     color: #fff;
     text-align: left;
-    font-size: 25px;
+    font-size: 40px;
     font-weight: 900;
     margin-bottom: 30px;
     width: 100%;
     max-width: 378px;
     padding-right: 30px;
 }
+
+
+
 
 .img-holder .info-holder p {
     display: inline-block;
@@ -260,10 +251,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000428', end
     color: #fff;
     text-align: left;
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 20px;
     margin-bottom: 30px;
 }
+
 
 .form-content p.form-subtitle {
     font-size: 16px;
@@ -450,14 +442,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000428', end
     line-height: 14px;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
+    
 }
 
 .form-content input[type="checkbox"]:checked + label:before {
     border-radius: 4px;
+    background: #004e92; /* IE9 Color*/
     background: -moz-linear-gradient(-45deg, #000428 0%, #004e92 100%); /* FF3.6-15 */
 background: -webkit-linear-gradient(-45deg, #000428 0%,#004e92 100%); /* Chrome10-25,Safari5.1-6 */
 background: linear-gradient(135deg, #000428 0%,#004e92 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000428', endColorstr='#004e92',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
 }
 
 .form-content input[type="checkbox"]:not(:checked) + label:before {
@@ -560,12 +554,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000428', end
     margin-bottom: 25px;
 }
 
+
+
 .form-content .form-button .ibtn {
-    border-radius: 6px;
-    border: 0;
+   
+     border: 1px solid #004e92; 
+    /* border-radius: 10px;  */
+    overflow: hidden;
     padding: 6px 28px;
-    background-color: #fff;
-    color: #29A4FF;
+    
+background-color: #fff; 
+     color: #29A4FF;
+
     font-size: 14px;
     font-weight: 700;
     text-decoration: none;
@@ -575,7 +575,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000428', end
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0.16);
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0.16);
+ box-shadow: 0 0 0 rgba(0, 0, 0, 0.16);
 }
 
 .form-content .form-button .ibtn:last-child {
@@ -667,9 +667,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000428', end
     width: 100px;
 }
 
-.website-logo .logo {
-    background-image: url("../images/ncb.svg");
-}
+
 
 .website-logo .logo img {
     width: 100px;
@@ -679,9 +677,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000428', end
     width: 100px;
 }
 
-.website-logo-inside .logo {
-    background-image: url("../images/ncb.svg");
-}
+
 
 .website-logo-inside .logo img {
     width: 100px;
@@ -763,7 +759,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000428', end
 }
 
 .form-content p {
-    color: #000;
+    color: #000428;
     text-align: left;
 }
 
@@ -835,18 +831,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000428', end
 }
 
 .form-content .form-button .ibtn {
+    background: #004e92;  /*IE9 Color */
     background: -moz-linear-gradient(-45deg, #000428 0%, #004e92 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(-45deg, #000428 0%,#004e92 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(135deg, #000428 0%,#004e92 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000428', endColorstr='#004e92',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    
     color: #fff;
     -webkit-box-shadow: 0 0 0 rgba(80, 182, 255, 0.31);
     box-shadow: 0 0 0 rgba(80, 182, 255, 0.31);
 }
 
 .form-content .form-button .ibtn:hover, .form-content .form-button .ibtn:focus {
-    box-shadow: 0 5px 6px rgbaa(48, 50, 79, 0.31);
     box-shadow: 0 5px 6px rgba(48, 50, 79, 0.31);
+  
 }
 
 
@@ -872,9 +869,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000428', end
         bottom: initial;
     }
 
-    .website-logo .logo {
-        background-image: url("../images/logo-light.svg");
-    }
+ 
 }
 
 
