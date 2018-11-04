@@ -1,0 +1,23 @@
+html{
+    overflow:  hidden !important;
+}
+.form-content .form-items {
+    display: inline-block !important;
+    width: 500px !important;
+    max-width: 400px !important;
+    text-align: left !important;
+    -webkit-transition: all 0.4s ease !important;
+    transition: all 0.4s ease !important;
+}
+
+.form-holder .form-content {
+    text-align: center !important;
+    position:fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    -webkit-transform: translate(-50%, -50%) !important;
+    -ms-transform: translate(-50%, -50%) !important;
+    transform: translate(-50%, -50%) !important;
+    padding: 60px !important;
+    min-height: 100% !important;
+}
