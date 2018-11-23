@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <div class="form-body">
+    <div class="logo">
+      <a href="#">
+        <div class="inner"><img src="https://i.imgur.com/VIDLtws.png" alt="NCB Logo" class="logo-size"></div>
+      </a>
+    </div>
+    <div class="row">
+      <div class="img-holder">
+        <div class="bg"></div>
+        <div class="info-holder">
+          <img src="email.png" alt="">
+          <h3 class="text-center sidebar-header">Email Campaign</h3>
+        </div>
+      </div>
+      <div class="form">
+        <div class="form-content">
+          <h3>Email Campaign Generation</h3>
+          <div class="seperator"></div>
+          <p class="text-left sub-heading">Define the email campaign criteria below</p>
+          <div class="form-items">
+            <form action="" class="form-inline">
+              <div id="occupation" class="checkbox">
+                <label class="checkbox-inline">
+                  <input name="criteria" type="checkbox" value="occupation">
+                  Occupation
+                </label>
+                <select class="form-control condition occupation" disabled>
+                  <option value=""></option>
+                  <option>&gt;</option>
+                  <option>&lt;</option>
+                  <option>&#61;</option>
+                  <option>&#8800;</option>
+                  <option>&#8804;</option>
+                  <option>&#8805;</option>
+                  <option>&#8712;</option>
+                  <option>&#8713;</option>
+                  <option>&#8812;</option>
+                  <option>NOT BETWEEN</option>
+                </select>
+                <div class="value" style="display:inline-block">
+                    <label for="occupation">Value</label>
+                    <input type="number" class="value occupation" name="" id="occupation_value" disabled>
+                </div>
+              </div>
+              <div id="age" class="checkbox">
+                  <label class="checkbox-inline">
+                    <input name="criteria" type="checkbox" value="age">
+                    Age
+                  </label>
+                  <select class="form-control condition age" disabled>
+                    <option value=""></option>
+                    <option>&gt;</option>
+                    <option>&lt;</option>
+                    <option>&#61;</option>
+                    <option>&#8800;</option>
+                    <option>&#8804;</option>
+                    <option>&#8805;</option>
+                    <option>&#8712;</option>
+                    <option>&#8713;</option>
+                    <option>&#8812;</option>
+                    <option>NOT BETWEEN</option>
+                  </select>
+                  <div class="value" style="display:inline-block">
+                      <label for="age">Value</label>
+                      <input type="number" class="value age" name="" id="age_value" disabled>
+                  </div>
+                
+                </div>
+                <button class="trigger">trigger</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script>
+    var object={};
+    var array=[];
+    $(".form-inline :checkbox").change(function(){
+      if(this.checked)
+      {
+      $('input.'+this.value).removeAttr("disabled")
+      $('select.'+this.value).removeAttr("disabled")
+      }
+      else{
+      console.log("not checkedx")
+       $('input.'+this.value).attr("disabled",true);
+       $('select.'+this.value).attr("disabled",true)
+      }
+    })
+
+    $(".trigger").on("click",function(e){
+      e.preventDefault();
+      var boxes=$('input[name=criteria]:checked');
+
+      boxes.each(function(){
+        var input=$("input.value."+this.value).val();
+       var condition=$("select."+this.value).find(":selected").text()
+    //   array.push(object);
+      console.log(this.value + ' ' +input +' '+ condition);
+      })
+    })
+ 
+  </script>
+</body>
+
+</html>
