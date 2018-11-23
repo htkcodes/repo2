@@ -37,7 +37,21 @@
                   <input name="criteria" type="checkbox" value="occupation">
                   Occupation
                 </label>
-                <select class="form-control condition occupation" disabled>
+                <select class="form-control condition occupation">
+
+                  <option selected value="equals">&#61;</option>
+                </select>
+                <div class="value" style="display:inline-block">
+                  <label for="occupation">Value</label>
+                  <input type="text" class="value occupation" name="" id="occupation_value" disabled>
+                </div>
+              </div>
+              <div id="age" class="checkbox">
+                <label class="checkbox-inline">
+                  <input name="criteria" type="checkbox" value="age">
+                  Age
+                </label>
+                <select class="form-control condition age" disabled>
                   <option value=""></option>
                   <option>&gt;</option>
                   <option>&lt;</option>
@@ -51,35 +65,205 @@
                   <option>NOT BETWEEN</option>
                 </select>
                 <div class="value" style="display:inline-block">
-                    <label for="occupation">Value</label>
-                    <input type="number" class="value occupation" name="" id="occupation_value" disabled>
+                  <label for="age">Value</label>
+                  <input type="number" class="value age" name="" id="age_value" disabled>
                 </div>
+
               </div>
-              <div id="age" class="checkbox">
-                  <label class="checkbox-inline">
-                    <input name="criteria" type="checkbox" value="age">
-                    Age
-                  </label>
-                  <select class="form-control condition age" disabled>
-                    <option value=""></option>
-                    <option>&gt;</option>
-                    <option>&lt;</option>
-                    <option>&#61;</option>
-                    <option>&#8800;</option>
-                    <option>&#8804;</option>
-                    <option>&#8805;</option>
-                    <option>&#8712;</option>
-                    <option>&#8713;</option>
-                    <option>&#8812;</option>
-                    <option>NOT BETWEEN</option>
-                  </select>
-                  <div class="value" style="display:inline-block">
-                      <label for="age">Value</label>
-                      <input type="number" class="value age" name="" id="age_value" disabled>
-                  </div>
-                
+              <div id="dpd" class="checkbox">
+                <label class="checkbox-inline">
+                  <input name="criteria" type="checkbox" value="dpd">
+                  Days Past Due
+                </label>
+                <select class="form-control condition dpd" disabled>
+                  <option value=""></option>
+                  <option>&gt;</option>
+                  <option>&lt;</option>
+                  <option>&#61;</option>
+                  <option>&#8800;</option>
+                  <option>&#8804;</option>
+                  <option>&#8805;</option>
+                  <option>&#8712;</option>
+                  <option>&#8713;</option>
+                  <option>&#8812;</option>
+                  <option>NOT BETWEEN</option>
+                </select>
+                <div class="value" style="display:inline-block">
+                  <label for="dpd">Value</label>
+                  <input type="number" class="value dpd" name="" id="dpd_value" disabled>
                 </div>
-                <button class="trigger">trigger</button>
+
+              </div>
+              <div id="principal" class="checkbox">
+                <label class="checkbox-inline">
+                  <input name="criteria" type="checkbox" value="principal">
+                  Value
+                </label>
+                <select class="form-control condition principal" disabled>
+                  <option value=""></option>
+                  <option>&gt;</option>
+                  <option>&lt;</option>
+                  <option>&#61;</option>
+                  <option>&#8800;</option>
+                  <option>&#8804;</option>
+                  <option>&#8805;</option>
+                  <option>&#8712;</option>
+                  <option>&#8713;</option>
+                  <option>&#8812;</option>
+                  <option>NOT BETWEEN</option>
+                </select>
+                <div class="value" style="display:inline-block">
+                  <label for="principal">Value</label>
+                  <input type="number" class="value principal" name="" id="principal_value" disabled>
+                </div>
+
+              </div>
+              <div id="product_type" class="checkbox">
+                <label class="checkbox-inline">
+                  <input name="criteria" type="checkbox" value="product_type">
+                  Product Type
+                </label>
+                <select class="form-control condition product_type" disabled>
+                  <option value=""></option>
+                  <option>&gt;</option>
+                  <option>&lt;</option>
+                  <option>&#61;</option>
+                  <option>&#8800;</option>
+                  <option>&#8804;</option>
+                  <option>&#8805;</option>
+                  <option>&#8712;</option>
+                  <option>&#8713;</option>
+                  <option>&#8812;</option>
+                  <option>NOT BETWEEN</option>
+                </select>
+                <div class="value" style="display:inline-block">
+                  <label for="product_type">Value</label>
+                  <input type="text" class="value product_type" name="" id="product_value" disabled>
+                </div>
+
+              </div>
+              <div id="nature" class="checkbox">
+                <label class="checkbox-inline">
+                  <input name="criteria" type="checkbox" value="nature">
+                  Nature of Advance
+                </label>
+                <select class="form-control condition nature" disabled>
+                  <option value=""></option>
+                  <option>&gt;</option>
+                  <option>&lt;</option>
+                  <option>&#61;</option>
+                  <option>&#8800;</option>
+                  <option>&#8804;</option>
+                  <option>&#8805;</option>
+                  <option>&#8712;</option>
+                  <option>&#8713;</option>
+                  <option>&#8812;</option>
+                  <option>NOT BETWEEN</option>
+                </select>
+                <div class="value" style="display:inline-block">
+                  <label for="nature">Value</label>
+                  <input type="text" class="value nature" name="" id="nature_value" disabled>
+                </div>
+
+              </div>
+              <div id="sol_id" class="checkbox">
+                <label class="checkbox-inline">
+                  <input name="criteria" type="checkbox" value="sol_id">
+                  SOL ID
+                </label>
+                <select class="form-control condition sol_id" disabled>
+                  <option value=""></option>
+                  <option>&gt;</option>
+                  <option>&lt;</option>
+                  <option>&#61;</option>
+                  <option>&#8800;</option>
+                  <option>&#8804;</option>
+                  <option>&#8805;</option>
+                  <option>&#8712;</option>
+                  <option>&#8713;</option>
+                  <option>&#8812;</option>
+                  <option>NOT BETWEEN</option>
+                </select>
+                <div class="value" style="display:inline-block">
+                  <label for="sol_id">Value</label>
+                  <input type="number" class="value sol_id" name="" id="solid_value" disabled>
+                </div>
+
+              </div>
+              <div id="gender" class="checkbox">
+                <label class="checkbox-inline">
+                  <input name="criteria" type="checkbox" value="gender">
+                  Gender
+                </label>
+                <select class="form-control condition gender" disabled>
+                  <option value=""></option>
+                  <option>&gt;</option>
+                  <option>&lt;</option>
+                  <option>&#61;</option>
+                  <option>&#8800;</option>
+                  <option>&#8804;</option>
+                  <option>&#8805;</option>
+                  <option>&#8712;</option>
+                  <option>&#8713;</option>
+                  <option>&#8812;</option>
+                  <option>NOT BETWEEN</option>
+                </select>
+                <div class="value" style="display:inline-block">
+                  <label for="gender">Value</label>
+                  <input type="text" class="value gender" name="" id="gender_value" disabled>
+                </div>
+
+              </div>
+
+              <div id="promise" class="checkbox">
+                <label class="checkbox-inline">
+                  <input name="criteria" type="checkbox" value="promise">
+                  Promise to Pay
+                </label>
+                <select class="form-control condition promise" disabled>
+                  <option value=""></option>
+                  <option>&gt;</option>
+                  <option>&lt;</option>
+                  <option>&#61;</option>
+                  <option>&#8800;</option>
+                  <option>&#8804;</option>
+                  <option>&#8805;</option>
+                  <option>&#8712;</option>
+                  <option>&#8713;</option>
+                  <option>&#8812;</option>
+                  <option>NOT BETWEEN</option>
+                </select>
+                <div class="value" style="display:inline-block">
+                  <label for="promise">Value</label>
+                  <input type="number" class="value promise" name="" id="promise_value" disabled>
+                </div>
+
+              </div>
+              <div id="result_code" class="checkbox">
+                <label class="checkbox-inline">
+                  <input name="criteria" type="checkbox" value="result_code">
+                  Result Code
+                </label>
+                <select class="form-control condition result_code" disabled>
+                  <option value=""></option>
+                  <option>&gt;</option>
+                  <option>&lt;</option>
+                  <option>&#61;</option>
+                  <option>&#8800;</option>
+                  <option>&#8804;</option>
+                  <option>&#8805;</option>
+                  <option>&#8712;</option>
+                  <option>&#8713;</option>
+                  <option>&#8812;</option>
+                  <option>NOT BETWEEN</option>
+                </select>
+                <div class="value" style="display:inline-block">
+                  <label for="result_code">Value</label>
+                  <input type="number" class="value result_code" name="" id="resultcode_value" disabled>
+                </div>
+
+              </div>
+              <button class="trigger">trigger</button>
             </form>
           </div>
         </div>
@@ -93,33 +277,33 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <script>
-    var object={};
-    var array=[];
-    $(".form-inline :checkbox").change(function(){
-      if(this.checked)
-      {
-      $('input.'+this.value).removeAttr("disabled")
-      $('select.'+this.value).removeAttr("disabled")
-      }
-      else{
-      console.log("not checkedx")
-       $('input.'+this.value).attr("disabled",true);
-       $('select.'+this.value).attr("disabled",true)
+    var object = {};
+    var array = [];
+    $(".form-inline :checkbox").change(function () {
+      if (this.checked) {
+        $('input.' + this.value).removeAttr("disabled")
+        $('select.' + this.value).removeAttr("disabled")
+      } else {
+        var input = $('input.' + this.value);
+        var select = $('select.' + this.value);
+        input.attr("disabled", true);
+        select.attr("disabled", true)
+        input.val("");
+        select.val("");
       }
     })
 
-    $(".trigger").on("click",function(e){
+    $(".trigger").on("click", function (e) {
       e.preventDefault();
-      var boxes=$('input[name=criteria]:checked');
+      var boxes = $('input[name=criteria]:checked');
 
-      boxes.each(function(){
-        var input=$("input.value."+this.value).val();
-       var condition=$("select."+this.value).find(":selected").text()
-    //   array.push(object);
-      console.log(this.value + ' ' +input +' '+ condition);
+      boxes.each(function () {
+        var input = $("input.value." + this.value).val();
+        var condition = $("select." + this.value).find(":selected").text()
+        //   array.push(object);
+        console.log(this.value + ' ' + input + ' ' + condition);
       })
     })
- 
   </script>
 </body>
 
