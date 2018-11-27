@@ -107,8 +107,10 @@ margin: 27px 0;
        }
     }
 }
+
+
 form{
-    margin-top: 90px;
+  margin-top: 90px;
 }
 .form{
     width: 100%;
@@ -169,6 +171,23 @@ transform: translate(0%,-40%) perspective(1px);;
             left:50%;
             label{
                 vertical-align: middle;
+            }
+            select{
+                position: absolute;
+                left: 50px;
+            }
+        }
+        .value_between{
+            margin-left: 20px;
+            position: absolute;
+            width: 100px;
+            left:80%;
+            label{
+                vertical-align: middle;
+            }
+            select{
+                position: absolute;
+                left: 50px;
             }
         }
     }

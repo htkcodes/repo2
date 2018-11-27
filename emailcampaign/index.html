@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css">
   <link rel="stylesheet" href="main.css">
 </head>
 
@@ -37,14 +38,26 @@
                   <input name="criteria" type="checkbox" value="occupation">
                   Occupation
                 </label>
-                <select class="form-control condition occupation">
-
-                  <option selected value="equals">&#61;</option>
+                <select class="form-control condition occupation" disabled>
+                  <option value=""></option>
+                  <option>&gt;</option>
+                  <option>&lt;</option>
+                  <option>&#61;</option>
+                  <option>&#8800;</option>
+                  <option>&#8804;</option>
+                  <option>&#8805;</option>
+                  <option>&#8712;</option>
+                  <option>&#8713;</option>
+                  <option>&#8812;</option>
+                  <option>NOT BETWEEN</option>
                 </select>
                 <div class="value" style="display:inline-block">
                   <label for="occupation">Value</label>
-                  <input type="text" class="value occupation" name="" id="occupation_value" disabled>
+                  <input type="number" class="value occupation" name="" id="occupation_value" disabled>
                 </div>
+                
+                
+
               </div>
               <div id="age" class="checkbox">
                 <label class="checkbox-inline">
@@ -138,7 +151,11 @@
                 </select>
                 <div class="value" style="display:inline-block">
                   <label for="product_type">Value</label>
-                  <input type="text" class="value product_type" name="" id="product_value" disabled>
+                  <select name="" id="" class="value product_type" disabled>
+                      <option value="">Select</option>
+                      <option value="">Card</option>
+                      <option value="">Loan</option>
+                    </select>
                 </div>
 
               </div>
@@ -162,7 +179,11 @@
                 </select>
                 <div class="value" style="display:inline-block">
                   <label for="nature">Value</label>
-                  <input type="text" class="value nature" name="" id="nature_value" disabled>
+                  <select name="" id="" class="value nature" disabled>
+                      <option value="">Select</option>
+                    <option value="">Unsecured</option>
+                    <option value="">Secured</option>
+                  </select>
                 </div>
 
               </div>
@@ -210,7 +231,11 @@
                 </select>
                 <div class="value" style="display:inline-block">
                   <label for="gender">Value</label>
-                  <input type="text" class="value gender" name="" id="gender_value" disabled>
+                  <select name="" id="" class="value gender" disabled>
+                      <option value="">Select</option>
+                      <option value="">Male</option>
+                      <option value="">Female</option>
+                    </select>
                 </div>
 
               </div>
@@ -259,7 +284,13 @@
                 </select>
                 <div class="value" style="display:inline-block">
                   <label for="result_code">Value</label>
-                  <input type="number" class="value result_code" name="" id="resultcode_value" disabled>
+                  <select name="" id="" class="value result_code" disabled>
+                      <option value="">Select</option>
+                      <option value="">WOFF</option>
+                      <option value=""></option>
+                      <option value=""></option>
+                      <option value=""></option>
+                    </select>
                 </div>
 
               </div>
@@ -274,6 +305,8 @@
 
   <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
     crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <script>
@@ -281,28 +314,68 @@
     var array = [];
     $(".form-inline :checkbox").change(function () {
       if (this.checked) {
-        $('input.' + this.value).removeAttr("disabled")
         $('select.' + this.value).removeAttr("disabled")
+       $('input.'+this.value).removeAttr("disabled");
+       $('select.value'+this.value).removeAttr("disabled");
       } else {
-        var input = $('input.' + this.value);
-        var select = $('select.' + this.value);
-        input.attr("disabled", true);
-        select.attr("disabled", true)
-        input.val("");
-        select.val("");
+        var condition = $('select.'+ this.value);
+        var selectValue=$('select.value'+this.value)
+        var input=$('input.'+this.value);
+        condition.attr("disabled", true);
+        input.attr("disabled",true)
+        selectValue.attr("disabled", true)
+        condition.val("");
+        selectValue.val("");
       }
     })
 
+$("select").on("change",function(){
+var parent=$(this).parent();
+var html= "<div class=\"value_between " + parent.attr('id')+"\" \" style=\"display:inline-block\">\n                  <label for=\"occupation\">Value</label>\n                  <input type=\"number\" class=\"value "+parent.attr('id')+"\" id=\"occupation_value\">\n                </div>";
+
+var selectText=$(this).find(":selected").text();
+
+if(selectText.toLowerCase() == "not between")
+{
+  $(this).parent().append(html)
+}
+else{
+  $(".value_between." +parent.attr('id')).remove();
+}
+
+
+
+})
+
+
+
     $(".trigger").on("click", function (e) {
       e.preventDefault();
+      
       var boxes = $('input[name=criteria]:checked');
-
-      boxes.each(function () {
-        var input = $("input.value." + this.value).val();
-        var condition = $("select." + this.value).find(":selected").text()
-        //   array.push(object);
-        console.log(this.value + ' ' + input + ' ' + condition);
+    //   $.toast({
+    //     heading: 'Positioning',
+    // text: 'Use the predefined ones, or specify a custom object',
+    // position: 'top-right',
+    // loader:false,
+    // stack: false
+    //   })
+      boxes.each(function (i) { 
+        var selectValue = $("input.value." + this.value).val();
+        if(selectValue == "" || selectValue == undefined)
+        {
+          selectValue=$("select.value"+this.value).find(":selected").text()
+        }
+        
+        //console.log(selectValue)
+        var condition = $("select." + this.value).find(":selected").text().toLowerCase();
+        
+        object["clause "+i]=this.value + ' ' + selectValue + ' ' + condition;
+         
+        console.log(this.value + ' ' + selectValue + ' ' + condition);
       })
+      array.push(object)
+      console.log(array)
     })
   </script>
 </body>

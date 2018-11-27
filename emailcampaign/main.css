@@ -144,6 +144,19 @@ form {
           left: 50%; }
           .form .form-content .form-items div.checkbox .value label {
             vertical-align: middle; }
+          .form .form-content .form-items div.checkbox .value select {
+            position: absolute;
+            left: 50px; }
+        .form .form-content .form-items div.checkbox .value_between {
+          margin-left: 20px;
+          position: absolute;
+          width: 100px;
+          left: 80%; }
+          .form .form-content .form-items div.checkbox .value_between label {
+            vertical-align: middle; }
+          .form .form-content .form-items div.checkbox .value_between select {
+            position: absolute;
+            left: 50px; }
       .form .form-content .form-items .checkbox-inline {
         font-family: "Open Sans", sans-serif;
         font-size: 17px;
