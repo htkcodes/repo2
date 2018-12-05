@@ -7,13 +7,17 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css">
-  <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="query-builder.dark.css">
+  <link rel="stylesheet" href="https://rawgit.com/htkcodes/repo2/master/emailcampaign/main.css">
+  <link rel="stylesheet" href="https://rawgit.com/htkcodes/repo2/master/emailcampaign/query-builder.default.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
 </head>
 
 <body>
+        <div id="dialog-confirm">
+                <p>Once saved you cannot stop the process or start over. Are you sure?</p>
+              </div>
+
+
   <div class="form-body">
     <div class="logo">
       <a href="#">
@@ -33,20 +37,20 @@
         <p class="text-left sub-heading">Define the email campaign criteria below</p>
         <div class="seperator"></div>
         <div class="form-content">
-
-
-
           <div class="form-items">
             <div class="col-md-12">
+                    <div class="form-group">
+                            <label for="criteria_name">Criteria Name</label>
+                            <input type="text" class="form-control" id="criteria_name" placeholder="Criteria Name">
+                          </div>
+
               <div id="builder-basic" class="query-builder form-inline">
                 
               </div>
       
               <div class="btn-group">
                   <button class="btn btn-warning reset" data-target="basic" id="btn-reset">Reset</button>
-                  <button class="btn btn-success set-json" data-target="basic" id="btn-set">Set rules</button>
-                  <button class="btn btn-primary parse-json" data-target="basic" id="btn-get">Get rules</button>
-                  <button class="btn btn-primary parse-json" data-target="basic" id="get-sql">Get Sql</button>
+                  <button class="btn btn-primary parse-json" data-target="basic" id="get-save">Save</button>
               </div>
           </div>
           </div>
@@ -55,30 +59,39 @@
     </div>
 
   </div>
-
-  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-    crossorigin="anonymous"></script>
+ 
+      
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://rawgit.com/mistic100/jQuery.extendext/master/jQuery.extendext.min.js"></script>
-    <script src="query-builder.standalone.js"></script>
+    <script src="https://rawgit.com/htkcodes/repo2/master/emailcampaign/query-builder.standalone.js"></script>
     <script>
-     
+
+
+    $( "#dialog-confirm" ).dialog({
+    autoOpen:true,
+      resizable: false,
+      title:'Are you sure?',
+      height: "auto",
+      width: 400,
+      modal: true,
+      buttons: {
+        "Delete all items": function() {
+          $( this ).dialog( "close" );
+        },
+        Cancel: function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
+
 
         $('#builder-basic').queryBuilder({
             plugins: ['bt-tooltip-errors'],
 
-            filters: [{
-                id: 'UPPER(name)',
-                label: 'Name',
-                type: 'string'
-            }, {
+            filters: [
+               {
                 id: 'Occupation',
                 label: 'Occupation',
                 type: 'integer',
@@ -116,8 +129,8 @@
                 operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
             },{
                 id: 'value',
-                label: 'Value',
-                type: 'integer',
+                label: 'Principal Balance Outstanding',
+                type: 'double',
                 input: 'number',
                 operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
             },{
@@ -143,8 +156,14 @@
             },{
                 id: 'sol_id',
                 label: 'SOL ID',
-                type: 'integer',
-                input: 'number',
+                type: 'string',
+                input: 'text',
+                validation:{
+format:/^\d{3}?$/,
+messages:{
+    format:'Only 3 Digits are allowed.'
+}
+                },
                 operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
             },{
                 id: 'gender',
@@ -190,11 +209,20 @@
                 console.log(JSON.stringify(result, null, 2));
             }
         });
-        $("#get-sql").on('click',function(){
-            var sql_raw = $('#builder-basic').queryBuilder('getSQL', false, true);
+        $("#get-save").on('click',function(){
+            /* $("#dialog-confirm").dialog('option','buttons',[
+                {
+                    text:"Yes",
+                    click:function(){
+                        var sql_raw = $('#builder-basic').queryBuilder('getSQL', false, true);
             console.log(sql_raw);
+                    }
+                }
+            ]); */
+           
         })
     </script>
+
 </body>
 
 </html>

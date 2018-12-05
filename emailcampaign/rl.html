@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+</head>
+<body>
+        <div id="dialog-confirm">
+                <p>Once saved you cannot stop the process or start over. Are you sure?</p>
+              </div>
+<button class="ret">OPEN</button>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script>
+        
+
+
+         $( "#dialog-confirm" ).dialog({
+    autoOpen:false,
+      resizable: false,
+      title:'Are you sure?',
+      height: "auto",
+      width: 400,
+      modal: true,
+      buttons: {
+        "Delete all items": function() {
+          $( this ).dialog( "close" );
+        },
+        Cancel: function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
+    $(".ret").on('click',function(){
+        $("#dialog-confirm").dialog('open');
+    })
+        </script>
+</body>
+</html>
