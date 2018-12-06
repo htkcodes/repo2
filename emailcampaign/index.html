@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://rawgit.com/htkcodes/repo2/master/emailcampaign/main.css">
   <link rel="stylesheet" href="https://rawgit.com/htkcodes/repo2/master/emailcampaign/query-builder.default.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css">
 </head>
 
 <body>
@@ -63,96 +64,192 @@
       
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://rawgit.com/mistic100/jQuery.extendext/master/jQuery.extendext.min.js"></script>
-    <script src="https://rawgit.com/htkcodes/repo2/master/emailcampaign/query-builder.standalone.js"></script>
-    <script>
-
-
-    $( "#dialog-confirm" ).dialog({
-    autoOpen:true,
+  <script src="https://rawgit.com/mistic100/jQuery.extendext/master/jQuery.extendext.min.js"></script>
+  <script src="https://rawgit.com/htkcodes/repo2/master/emailcampaign/query-builder.standalone.js"></script>
+<script>
+  $( "#dialog-confirm" ).dialog({
+    autoOpen:false,
       resizable: false,
       title:'Are you sure?',
       height: "auto",
       width: 400,
       modal: true,
       buttons: {
-        "Delete all items": function() {
-          $( this ).dialog( "close" );
+        "Yes": function() {
+         
+            $(this).dialog('close');
+            var sql_raw = $('#builder-basic').queryBuilder('getSQL', false, true);
+            console.log(sql_raw);
         },
         Cancel: function() {
           $( this ).dialog( "close" );
         }
       }
     });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+
+    <script>
+
+
+  
 
 
         $('#builder-basic').queryBuilder({
             plugins: ['bt-tooltip-errors'],
 
             filters: [
-               {
-                id: 'Occupation',
-                label: 'Occupation',
-                type: 'integer',
-                input: 'select',
-                values: [
-                    'Doctor',
-                     'Teacher',
-                    'Fireman',
-                    'Soldier',
-                    'Lawyer',
-                    'HouseKeeper',
-                    'Chef',
-                    'Waitress',
-                    'Others'
-                ],
-                operators: ['equal', 'not_equal','in']
-            }, {
-                id: 'Age',
-                label: 'Age',
+            {
+                id: 'ACCOUNT_NUMBER',
+                label:'Account Number',
                 type: 'integer',
                 input: 'number',
                 operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
             },
             {
-                id: 'dpd',
+                id: 'CI_ARREARS',
+                label:'Arrears(Loans)',
+                type: 'integer',
+                input: 'number',
+                operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
+            },
+            {
+                id: 'CI_MINIMUMAMTDUE',
+                label:'Mininum Payment(Cards)',
+                type: 'integer',
+                input: 'number',
+                operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
+            },
+            {
+                id: 'CI_CURRENTBAL',
+                label:'Current Balance',
+                type: 'integer',
+                input: 'number',
+                operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
+            },
+               {
+                id: 'UPPER(ci_occupation)',
+                label: 'Occupation',
+                type: 'integer',
+                input: 'select',
+                values: {
+                    'DOCTOR':'DOCTOR',
+                     'TEACHER':'TEACHER',
+                    'FIRE':'FIRE',
+                    'SOLDIER':'SOLDIER',
+                    'LAWYER':'LAWYER',
+                    'HOUSEKEEPER':'HOUSEKEEPER',
+                    'CHEF':'CHEF',
+                    'WAITRESS':'WAITRESS',
+                    'OTHERS':''
+                },
+                operators: ['contains','not_contains']
+            }, {
+                id: 'UPPER(CI_CURRENCY)',
+                label: 'Currency',
+                type: 'integer',
+                input: 'select',
+                values: [
+                    'GBP',
+                     'USD',
+                     'CAD',
+                     'JMD'
+                ],
+                operators: ['equal', 'not_equal']
+            }, {
+                id: 'CI_PAYMENTDUEDATE',
+                label: 'Payment Due Date',
+                type: 'date',
+                validation:{
+                    format:'DD/MMM/YYYY'
+                },
+                plugin:'datepicker',
+                plugin_config:{
+                    format:'dd/M/yyyy',
+                    autoclose:true
+                },
+                operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
+            },
+            {
+                id: 'CI_DATEOFBIRTH',
+                label: 'Date of Birth',
+                type: 'date',
+                validation:{
+                    format:'DD/MMM/YYYY'
+                },
+                plugin:'datepicker',
+                plugin_config:{
+                    format:'dd/M/yyyy',
+                    autoclose:true
+                },
+                operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
+            },
+            {
+                id: 'CI_DPD',
                 label: 'Days Past Due',
                 type: 'integer',
                 input: 'number',
                 operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
+            },
+            {
+                id: 'CI_TRN_SSN',
+                label: 'TRN',
+                type: 'string',
+                input: 'text',
+                validation:{
+format:/^\d{9}?$/,
+messages:{
+    format:'A TRN Contains 9 Digits'
+}
+                },
+                operators: ['equal','not_equal','contains','not_contains'],
+            },  {
+                id: 'CI_TOTALEXPOSURE',
+                label: 'Total Exposure',
+                type: 'integer',
+                input: 'number',
+                operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
+            }, {
+                id: 'CI_BROKENPROMISE',
+                label: 'Broken Promise',
+                type: 'integer',
+                input: 'number',
+                operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
             },{
-                id: 'promise',
+                id: 'PROMISEAMOUNT',
                 label: 'Promise to Pay',
                 type: 'integer',
                 input: 'number',
                 operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
             },{
-                id: 'value',
+                id: 'CI_PRINCIPALBALANCEOUTSTANDING',
                 label: 'Principal Balance Outstanding',
                 type: 'double',
                 input: 'number',
                 operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
             },{
-                id: 'product_type',
+                id: 'UPPER(ACCOUNTTYPE)',
                 label: 'Product Type',
                 type: 'integer',
                 input: 'select',
                 values: [
-                    'Card',
-                     'Loan'
+                    'CARD',
+                     'LOAN'
                 ],
-                operators: ['equal', 'not_equal','in']
+                operators: ['equal', 'not_equal']
             },{
-                id: 'nature',
+                id: 'UPPER(CI_NATUREOFADVANCE)',
                 label: 'Nature of Advance',
                 type: 'integer',
                 input: 'select',
                 values: [
-                    'Secured',
-                     'Unsecured'
+                    'SECURED',
+                     'UNSECURED'
                 ],
-                operators: ['equal', 'not_equal','in']
+                operators: ['contains', 'not_contains','in']
             },{
                 id: 'sol_id',
                 label: 'SOL ID',
@@ -165,23 +262,12 @@ messages:{
 }
                 },
                 operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
-            },{
-                id: 'gender',
-                label: 'Gender',
-                type: 'integer',
-                input: 'select',
-                values: [
-                    'Male',
-                     'Female'
-                ],
-                operators: ['equal', 'not_equal','in']
             }, {
-                id:'result',
-                label: 'Result Code',
+                id:'UPPER(ACCSTATUS)',
+                label: 'Account Status',
                 type: 'integer',
                 input: 'select',
                 values: [
-
                      'D015',
                      'D030',
                      'D060',
@@ -209,16 +295,15 @@ messages:{
                 console.log(JSON.stringify(result, null, 2));
             }
         });
-        $("#get-save").on('click',function(){
-            /* $("#dialog-confirm").dialog('option','buttons',[
-                {
-                    text:"Yes",
-                    click:function(){
-                        var sql_raw = $('#builder-basic').queryBuilder('getSQL', false, true);
-            console.log(sql_raw);
-                    }
-                }
-            ]); */
+        $("#get-save").on('click',function()
+        {
+            if($('#builder-basic').queryBuilder('validate') == false)
+            {
+                return;
+            }
+            else{
+                $("#dialog-confirm").dialog('open');
+            }
            
         })
     </script>
