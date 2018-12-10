@@ -40,11 +40,13 @@
         <div class="form-content">
           <div class="form-items">
             <div class="col-md-12">
-                    <div class="form-group criteria_master">
+                <div class="selection">
+
+                    <select class="criteria" name="" id=""></select>
+                </div>
+                    <div class="form-group">
                             <label for="criteria_name">Criteria Name</label>
                             <input type="text" class="form-control" id="criteria_name" placeholder="Criteria Name">
-                           
-                            <span class="help-block"></span>
                           </div>
 
               <div id="builder-basic" class="query-builder form-inline">
@@ -67,27 +69,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://rawgit.com/mistic100/jQuery.extendext/master/jQuery.extendext.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sql-parser-mistic@1.2.2/browser/sql-parser.min.js"></script>
   <script src="https://rawgit.com/htkcodes/repo2/master/emailcampaign/query-builder.standalone.js"></script>
 <script>
-    $('#criteria_name').focus();
-
-    $('#criteria_name').focusout(function(){
-        if(!$('#criteria_name').val())
-            {
-                $('.criteria_master').addClass('has-error');
-                $('.help-block').html('Please enter a criteria name')
-                $('#criteria_name').focus();
-                $('#get-save').attr('disabled',true);
-            }
-    })
-    $('#criteria_name').on('keyup',function(){
-        $('.criteria_master').removeClass('has-error');
-        $('.help-block').html('');
-        $('#get-save').removeAttr('disabled');
-    })
-
- 
-       
   $( "#dialog-confirm" ).dialog({
     autoOpen:false,
       resizable: false,
@@ -97,11 +81,10 @@
       modal: true,
       buttons: {
         "Yes": function() {
+         
             $(this).dialog('close');
             var sql_raw = $('#builder-basic').queryBuilder('getSQL', false, true);
             console.log(sql_raw);
-            var newSql=sql_raw.sql.replace(/%/g,'#');
-            console.log(newSql)
         },
         Cancel: function() {
           $( this ).dialog( "close" );
@@ -115,10 +98,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
 
     <script>
-
-
-  
-
 
         $('#builder-basic').queryBuilder({
             plugins: ['bt-tooltip-errors'],
@@ -329,7 +308,24 @@ messages:{
            
         })
     </script>
+<script>
 
+var obj = { first: "John", last: "CI_ARREARS > 10 AND CI_MINIMUMAMTDUE < 2500"};
+var options='';
+Object.keys(obj).forEach(function(key) {
+options+='<option value="'+obj[key]+'">'+obj[key]+'</option>';
+    console.log(key, obj[key]);
+});
+
+$('select.criteria').html(options);
+
+
+
+$('select.criteria').on('change', function() {
+$('#builder-basic').queryBuilder('setRulesFromSQL', this.value);
+});
+
+</script>
 </body>
 
 </html>
