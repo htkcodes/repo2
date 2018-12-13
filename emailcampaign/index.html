@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://rawgit.com/htkcodes/repo2/master/emailcampaign/query-builder.default.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -55,6 +56,7 @@
                   <button class="btn btn-warning reset" data-target="basic" id="btn-reset">Reset</button>
                   <button class="btn btn-primary parse-json" data-target="basic" id="get-save">Save</button>
               </div>
+              <button class="openload">Open</button>
           </div>
           </div>
         </div>
@@ -65,6 +67,14 @@
  
       
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.js"></script>
+  <script src="jquery-loader.js"></script>
+<script>
+$(".openload").on('click',function(){
+    $.loader.open({
+        title:'Loading'
+    });
+})
+</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://rawgit.com/mistic100/jQuery.extendext/master/jQuery.extendext.min.js"></script>
   <script src="https://rawgit.com/htkcodes/repo2/master/emailcampaign/query-builder.standalone.js"></script>
@@ -204,7 +214,7 @@
                 },
                 plugin:'datepicker',
                 plugin_config:{
-                    format:'dd/M/yyyy',
+                    format:'\'dd/M/yyyy\'',
                     autoclose:true
                 },
                 operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']

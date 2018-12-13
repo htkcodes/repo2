@@ -35,7 +35,7 @@
       </div>
       <div class="form">
         <h3>Email Campaign Generation</h3>
-        <p class="text-left sub-heading">Define the email campaign criteria below</p>
+        <p class="text-left sub-heading">Modify the email campaign criteria below</p>
         <div class="seperator"></div>
         <div class="form-content">
           <div class="form-items">
@@ -44,10 +44,6 @@
 
                     <select class="criteria" name="" id=""></select>
                 </div>
-                    <div class="form-group">
-                            <label for="criteria_name">Criteria Name</label>
-                            <input type="text" class="form-control" id="criteria_name" placeholder="Criteria Name">
-                          </div>
 
               <div id="builder-basic" class="query-builder form-inline">
                 
@@ -308,24 +304,7 @@ messages:{
            
         })
     </script>
-<script>
 
-var obj = { first: "John", last: "CI_ARREARS > 10 AND CI_MINIMUMAMTDUE < 2500"};
-var options='';
-Object.keys(obj).forEach(function(key) {
-options+='<option value="'+obj[key]+'">'+obj[key]+'</option>';
-    console.log(key, obj[key]);
-});
-
-$('select.criteria').html(options);
-
-
-
-$('select.criteria').on('change', function() {
-$('#builder-basic').queryBuilder('setRulesFromSQL', this.value);
-});
-
-</script>
 </body>
 
 </html>
