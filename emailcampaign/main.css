@@ -115,7 +115,7 @@ form {
     text-align: center;
     display: inline-block;
     padding-left: 0px;
-    widows: 75vw;
+    width: 74vw;
     height: 80vh;
     transform-style: preserve-3d; }
     .form .form-content p {
