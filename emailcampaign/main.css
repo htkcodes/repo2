@@ -64,11 +64,11 @@ html, body {
     height: 100%;
     width: 100%; }
     .form-body .row .img-holder {
-      width: 450px;
+      width: 25vw;
       background-color: #152733;
       position: fixed;
       display: inline-block;
-      position: absolute;
+      position: relative;
       top: 0;
       left: 0;
       overflow: hidden;
@@ -95,27 +95,33 @@ form {
   margin-top: 25px; }
 
 .form {
-  width: 100%;
-  margin-left: 480px;
-  height: 100%; }
+  width: 73vw;
+  display: inline-block;
+  height: 100%;
+  margin-left: 15px;
+  position: absolute;
+  margin-left: 15px; }
   .form .seperator {
     width: 90px;
     background: #30324F;
     height: 3px;
+    margin-left: 15px;
     margin-bottom: 30px; }
   .form .sub-heading {
-    margin-bottom: 30px; }
+    margin-bottom: 30px;
+    margin-left: 15px; }
   .form h3 {
     font-weight: bold;
     font-family: "Montserrat", sans-serif;
     width: 400px;
-    text-align: left; }
+    text-align: left;
+    margin-left: 15px; }
   .form .form-content {
     position: relative;
     text-align: center;
     display: inline-block;
     padding-left: 0px;
-    width: 74vw;
+    width: 100%;
     height: 80vh;
     transform-style: preserve-3d; }
     .form .form-content p {

@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://rawgit.com/htkcodes/repo2/master/emailcampaign/main.css">
+  <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="https://rawgit.com/htkcodes/repo2/master/emailcampaign/query-builder.default.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css">
@@ -19,6 +19,19 @@
                 <p>Once saved you cannot stop the process or start over. Are you sure?</p>
               </div>
 
+              <div class="dropdown">
+                <p class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  Dropdown
+                  <span class="caret"></span>
+                </p>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div>
 
   <div class="form-body">
     <div class="logo">
@@ -40,7 +53,7 @@
         <div class="seperator"></div>
         <div class="form-content">
           <div class="form-items">
-            <div class="col-md-12">
+            <div class="col-md-12 col-lg-12">
                     <div class="form-group criteria_master">
                             <label for="criteria_name">Criteria Name</label>
                             <input type="text" class="form-control" id="criteria_name" placeholder="Criteria Name">
