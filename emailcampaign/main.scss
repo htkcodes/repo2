@@ -10,6 +10,37 @@ $mons:'Montserrat', sans-serif;
 $open: 'Open Sans', sans-serif;
 
 
+
+.dropdown{
+    position: absolute;
+    top:25px;
+    right: 120px;
+    z-index: 999;
+font-family: $open;
+  
+}
+
+
+@media only screen and (max-width: 1025px) {
+    .menu{
+        position: absolute;
+        top:25px;
+        right: 0px;
+        width: 400px;
+        font-size: 10.5px;
+        z-index: 999;
+    font-family: $open;
+        ul{
+        
+            list-style: none;
+            li{
+                padding: 0 5px;
+                display: inline-block;
+            }
+        }
+    }
+  }
+
 .navbar{
     border-radius:0 !important;
     border: none !important;
