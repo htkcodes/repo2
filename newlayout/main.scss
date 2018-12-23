@@ -21,7 +21,7 @@ $lato:'Lato', sans-serif;
 $ptsans:'PT Sans', sans-serif;
 
 
-$accent:#18CAFA;
+$accent:#30324F;
 
 html,body{
     height: 100%;
@@ -78,8 +78,8 @@ label{
    padding: 4px 6px !important;
     line-height: 45px;
     height: 45px !important;
+    
 }
-
 .mt-25{
     margin-top: 25px;
 }
@@ -107,3 +107,5 @@ font-family: $ptsans;
     text-align: center;
     pointer-events: none;
 }
+
+

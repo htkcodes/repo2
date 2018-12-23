@@ -7,19 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="main.css">
+
     <link rel="stylesheet" href="https://rawgit.com/htkcodes/repo2/master/emailcampaign/query-builder.default.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/css/uikit.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
     <div id="dialog-confirm">
         <p>Once saved you cannot stop the process or start over. Are you sure?</p>
     </div>
-
-
 
     <div class="form-body">
 
@@ -28,49 +27,44 @@
                 <div class="inner"><img src="https://i.imgur.com/VIDLtws.png" alt="NCB Logo" class="logo-size"></div>
             </a>
         </div>
-        <div class="row">
-            <div class="dropdown">
-                <p class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Quick Navigation
-                    <span class="caret"></span>
-                </p>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="#" class="ecg">Email Campaign Generation</a></li>
-                    <li><a href="#" class="ecm">Email Campaign Modification</a></li>
-                </ul>
-            </div>
-            <div class="img-holder">
-                <div class="bg"></div>
-                <div class="info-holder">
-                    <img src="email.png" alt="">
-                    <h3 class="text-center sidebar-header">Email Campaign</h3>
+        <div class="uk-grid uk-height-1-1">
+            <div class="uk-width-3-10 uk-text-center uk-vertical-align background uk-height-1-1">
+                <div class="side-img uk-vertical-align-middle">
+                    <img src="email.png" alt="Email Campaign icon">
+                    <h1 class="white-text">Email Campaign</h1>
                 </div>
             </div>
-            <div class="form">
-                <h3>Email Campaign Generation</h3>
-                <p class="text-left sub-heading">Define the email campaign criteria below</p>
+            <div class="uk-width-7-10 c_form">
+                <h2 class="accent-text m-t-20">Email Campaign</h2>
+                <p class="accent-text lato">Define the email campaign criteria below</p>
                 <div class="seperator"></div>
-                <div class="form-content">
-                    <div class="form-items">
-                        <div class="col-md-12 col-lg-12">
-                            <div class="form-group criteria_master">
-                                <label for="criteria_name">Criteria Name</label>
-                                <input type="text" class="form-control" id="criteria_name" placeholder="Criteria Name">
 
-                                <span class="help-block"></span>
-                            </div>
+                <div>
+                  
+                        <div class="uk-width-6-10 uk-form-stacked uk-container-center">
+                                <div class="uk-form-row">
+                                        <label for="" class="uk-form-label text-color">Criteria Name</label>
+                                        <div class="uk-form-icon uk-width-7-10">
+                                        <i class="uk-icon-info"></i>
+                                        <input type="text" name="" id="criteria_name" class="uk-width-3-5 uk-form-large">
+                                        </div>
+                                        <p class="uk-form-help-block"></p>
+                                    </div>
 
-                            <div id="builder-basic" class="query-builder form-inline">
+                                    <div class="uk-form-row">
+                                           
+                         
+                                <div id="builder-basic" class="query-builder uk-width-5-5">
 
-                            </div>
-
-                            <div class="btn-group">
-                                <button class="btn btn-warning reset" data-target="basic" id="btn-reset">Reset</button>
-                                <button class="btn btn-primary parse-json" data-target="basic" id="get-save">Save</button>
-                            </div>
-                            <button class="openload">Open</button>
+                                    </div>
+                        
+                                </div>
+                                <div class="btn-group m-t-5">
+                                    <button class="uk-button btn-radius reset uk-button-danger" data-target="basic" id="btn-reset">Reset</button>
+                                    <button class="uk-button uk-button-success btn-radius parse-json" data-target="basic" id="get-save">Save</button>
+                                </div>
                         </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -89,21 +83,21 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://rawgit.com/mistic100/jQuery.extendext/master/jQuery.extendext.min.js"></script>
-    <script src="https://rawgit.com/htkcodes/repo2/master/emailcampaign/query-builder.standalone.js"></script>
+    <script src="query-builder.standalone.js"></script>
     <script>
-        //$('#criteria_name').focus();
+        $('#criteria_name').focus();
 
-       /*  $('#criteria_name').focusout(function () {
-            if (!$('#criteria_name').val()) {
-                $('.criteria_master').addClass('has-error');
-                $('.help-block').html('Please enter a criteria name')
-                $('#criteria_name').focus();
-                $('#get-save').attr('disabled', true);
-            }
-        }) */
+          $('#criteria_name').focusout(function () {
+             if (!$('#criteria_name').val()) {
+                 $('.uk-form-help-block').html('Please enter a criteria name')
+                 $('#criteria_name').focus();
+               $('#get-save').attr('disabled', true);
+                $(this).addClass('uk-form-danger')
+             }
+         }) 
         $('#criteria_name').on('keyup', function () {
-            $('.criteria_master').removeClass('has-error');
-            $('.help-block').html('');
+            $(this).removeClass('uk-form-danger');
+            $('.uk-form-help-block').html('')
             $('#get-save').removeAttr('disabled');
         })
 
@@ -136,6 +130,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
 
     <script>
+      
         $('#builder-basic').queryBuilder({
             plugins: ['bt-tooltip-errors'],
 
@@ -345,26 +340,26 @@
                     operators: ['equal', 'not_equal', 'in']
                 },
             ],
-        
+
         });
 
         $('#btn-reset').on('click', function () {
             $('#builder-basic').queryBuilder('reset');
         });
 
-        var errorArray=[];
-        $('#builder-basic').on('validationError.queryBuilder.filter', function(e, node, error, value) {
-       
-console.log(e)
+        var errorArray = [];
+        $('#builder-basic').on('validationError.queryBuilder.filter', function (e, node, error, value) {
 
-console.log(node)
-     /*    if(errorArray.indexOf(error.error[0]))
-        {
-            errorArray.push(error.error[0])
-        }  
+            console.log(e)
 
-        console.log(errorArray) */
-});
+            console.log(node)
+            /*    if(errorArray.indexOf(error.error[0]))
+               {
+                   errorArray.push(error.error[0])
+               }  
+
+               console.log(errorArray) */
+        });
 
 
 
@@ -383,6 +378,8 @@ console.log(node)
             }
 
         })
+
+
     </script>
 
 </body>

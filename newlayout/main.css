@@ -296,7 +296,7 @@ p {
   font-size: 1.3rem; }
 
 .background {
-  background-color: #18CAFA; }
+  background-color: #30324F; }
 
 h1 {
   font-size: 4rem !important;
@@ -340,7 +340,7 @@ label {
   font-family: "PT Sans", sans-serif; }
 
 .uk-button:hover, .uk-button:focus {
-  background-color: #18CAFA;
+  background-color: #30324F;
   color: white;
   outline: none;
   text-decoration: none; }

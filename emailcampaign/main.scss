@@ -1,4 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600|Open+Sans:400,600');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:700');
+
+
+
+$spaceamounts: (3,5, 10, 15, 20, 25, 30, 35, 40, 45, 50,55,60,65,70, 75, 100); 
+$sides: (top, bottom, left, right); 
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m-#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+  
+    .p-#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
 
 html,body{
     height: 100%;
@@ -6,9 +25,74 @@ html,body{
 }
 
 $secondary: #30324F;
+$text-white:white;
+
+
+
 $mons:'Montserrat', sans-serif;
 $open: 'Open Sans', sans-serif;
+$lato:'Lato', sans-serif;
+$ptsans:'PT Sans', sans-serif;
 
+.background{
+    background-color: $secondary;
+}
+.white-text{
+    color: $text-white;
+} 
+
+.text-color{
+    color: #707F91;
+}
+
+.accent-text{
+    color:$secondary;
+}
+.lato{
+    font-family: $lato;
+}
+
+
+h1,h2{
+    font-weight: bold;
+     font-family:$mons;
+}
+
+.btn-radius{
+    border-radius: 12px;
+}
+
+.c_form{
+    p{
+        font-size: 1.1rem;
+    }
+
+
+    .seperator{
+        width: 90px;
+        background: $secondary;
+        height: 3px;
+        margin-bottom: 30px;
+    }
+    input{
+        border-radius: 8px;
+        border-style: solid !important;
+        border: 1px solid #cccccc;
+    }
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+input[type].uk-form-large {
+    height: 35px;
+    padding: 8px 6px;
+    font-size: 16px;
+}
 
 
 .dropdown{
@@ -40,6 +124,17 @@ font-family: $open;
         }
     }
   }
+
+
+.query-builder .rules-group-container {
+    border: none;
+    background: #30324F;
+}
+
+.query-builder .rules-list > *::before, .query-builder .rules-list > *::after {
+    border-color: transparent;
+   
+}
 
 .navbar{
     border-radius:0 !important;
@@ -108,7 +203,7 @@ width: 100%;
        width: 100%;
        .img-holder{
         width: 25vw;
-        background-color: #152733;
+        background-color: #30324F;
         position: fixed;
         display: inline-block;
         position: relative;
@@ -161,6 +256,9 @@ form{
 .sub-heading{
     margin-bottom: 30px;
     margin-left: 15px;
+    font-family: $lato;
+    font-size: 1.6rem;
+    color:#30324F;
 }
  h3{
      font-weight: bold;
@@ -168,6 +266,7 @@ form{
      width: 400px; 
      text-align: left;
      margin-left: 15px;
+     color: #30324F
  }
 
     .form-content{

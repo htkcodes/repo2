@@ -2961,18 +2961,18 @@ QueryBuilder.prototype.getValidationMessage = function(validation, type, def) {
 
 QueryBuilder.templates.group = '\
 <div id="{{= it.group_id }}" class="rules-group-container"> \
-  <div class="rules-group-header"> \
+  <div class="rules-group-header m-b-15"> \
     <div class="btn-group pull-right group-actions"> \
-      <button type="button" class="btn btn-xs btn-success" data-add="rule"> \
+      <button type="button" class="uk-button uk-button-small uk-button-success btn-radius" data-add="rule"> \
         <i class="{{= it.icons.add_rule }}"></i> {{= it.translate("add_rule") }} \
       </button> \
       {{? it.settings.allow_groups===-1 || it.settings.allow_groups>=it.level }} \
-        <button type="button" class="btn btn-xs btn-success" data-add="group"> \
+        <button type="button" class="uk-button uk-button-small uk-button-success btn-radius" data-add="group"> \
           <i class="{{= it.icons.add_group }}"></i> {{= it.translate("add_group") }} \
         </button> \
       {{?}} \
       {{? it.level>1 }} \
-        <button type="button" class="btn btn-xs btn-danger" data-delete="group"> \
+        <button type="button" class="uk-button uk-button-danger btn-radius" data-delete="group"> \
           <i class="{{= it.icons.remove_group }}"></i> {{= it.translate("delete_group") }} \
         </button> \
       {{?}} \
@@ -2996,8 +2996,8 @@ QueryBuilder.templates.group = '\
 QueryBuilder.templates.rule = '\
 <div id="{{= it.rule_id }}" class="rule-container"> \
   <div class="rule-header"> \
-    <div class="btn-group pull-right rule-actions"> \
-      <button type="button" class="btn btn-xs btn-danger" data-delete="rule"> \
+    <div class="btn-group pull-right rule-actions m-t-3"> \
+      <button type="button" class="uk-button uk-button-danger btn-radius uk-button-small" data-delete="rule"> \
         <i class="{{= it.icons.remove_rule }}"></i> {{= it.translate("delete_rule") }} \
       </button> \
     </div> \
