@@ -91,16 +91,16 @@
     <script src="https://rawgit.com/mistic100/jQuery.extendext/master/jQuery.extendext.min.js"></script>
     <script src="https://rawgit.com/htkcodes/repo2/master/emailcampaign/query-builder.standalone.js"></script>
     <script>
-        $('#criteria_name').focus();
+        //$('#criteria_name').focus();
 
-        $('#criteria_name').focusout(function () {
+       /*  $('#criteria_name').focusout(function () {
             if (!$('#criteria_name').val()) {
                 $('.criteria_master').addClass('has-error');
                 $('.help-block').html('Please enter a criteria name')
                 $('#criteria_name').focus();
                 $('#get-save').attr('disabled', true);
             }
-        })
+        }) */
         $('#criteria_name').on('keyup', function () {
             $('.criteria_master').removeClass('has-error');
             $('.help-block').html('');
@@ -345,14 +345,26 @@
                     operators: ['equal', 'not_equal', 'in']
                 },
             ],
-            default_group_flags: {
-                no_add_rule: true
-            }
+        
         });
 
         $('#btn-reset').on('click', function () {
             $('#builder-basic').queryBuilder('reset');
         });
+
+        var errorArray=[];
+        $('#builder-basic').on('validationError.queryBuilder.filter', function(e, node, error, value) {
+       
+console.log(e)
+
+console.log(node)
+     /*    if(errorArray.indexOf(error.error[0]))
+        {
+            errorArray.push(error.error[0])
+        }  
+
+        console.log(errorArray) */
+});
 
 
 

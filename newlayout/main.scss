@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:700');
+
+
+$spaceamounts: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m-#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+  
+    .p-#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
+
+$lato:'Lato', sans-serif;
+$ptsans:'PT Sans', sans-serif;
+
+
+$accent:#18CAFA;
+
+html,body{
+    height: 100%;
+   
+}
+
+p{
+    font-family: $lato;
+    font-size: 1.3rem;
+}
+.background{
+    background-color: $accent;
+}
+
+
+h1{
+    font-size: 4rem !important;
+    color: white;
+    font-family: $lato;
+}
+
+.v-middle-header {
+    vertical-align: 100px;
+}
+
+.form-body{
+    height: 100%;
+    
+}
+.logo{
+    top: 50px;
+    left: 50px;
+    right: initial;
+    bottom: initial;
+    display: inline-block;
+    position: absolute;
+    a{
+        img{
+            width: 100px;
+        }
+    }
+}
+
+label{
+    text-align: left !important;
+}
+
+.text-color{
+    color: #707F91;
+}
+
+.uk-form input{
+    border-radius: 8px;
+   padding: 4px 6px !important;
+    line-height: 45px;
+    height: 45px !important;
+}
+
+.mt-25{
+    margin-top: 25px;
+}
+
+.btn-radius{
+    border-radius: 20px;
+    color:white;
+font-family: $ptsans;
+}
+
+.uk-button:hover, .uk-button:focus {
+    background-color: $accent;
+    color: white;
+    outline: none;
+    text-decoration: none;
+}
+
+.uk-form-icon ~ [class*='uk-icon-'] {
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    margin-top: -7px;
+    font-size: 14px;
+    color: #999999;
+    text-align: center;
+    pointer-events: none;
+}
