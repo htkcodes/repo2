@@ -17,9 +17,7 @@
 </head>
 
 <body>
-    <div id="dialog-confirm">
-        <p>Once saved you cannot stop the process or start over. Are you sure?</p>
-    </div>
+   
 
     <div class="form-body">
 
@@ -77,14 +75,6 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.js"></script>
-    <script src="jquery-loader.js"></script>
-    <script>
-        $(".openload").on('click', function () {
-            $.loader.open({
-                title: 'Loading'
-            });
-        })
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://rawgit.com/mistic100/jQuery.extendext/master/jQuery.extendext.min.js"></script>
     <script src="query-builder.standalone.js"></script>
@@ -104,29 +94,6 @@
             $('.uk-form-help-block').html('')
             $('#get-save').removeAttr('disabled');
         })
-
-
-
-        $("#dialog-confirm").dialog({
-            autoOpen: false,
-            resizable: false,
-            title: 'Are you sure?',
-            height: "auto",
-            width: 400,
-            modal: true,
-            buttons: {
-                "Yes": function () {
-                    $(this).dialog('close');
-                    var sql_raw = $('#builder-basic').queryBuilder('getSQL', false, true);
-                    console.log(sql_raw);
-                    var newSql = sql_raw.sql.replace(/%/g, '#');
-                    console.log(newSql)
-                },
-                Cancel: function () {
-                    $(this).dialog("close");
-                }
-            }
-        });
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
@@ -381,7 +348,12 @@
             if ($('#builder-basic').queryBuilder('validate') == false) {
                 return;
             } else {
-                $("#dialog-confirm").dialog('open');
+                UIkit.modal.confirm('Once saved you cannot stop the process or start over. Are you sure you want to continue?', function(){
+                    var sql_raw = $('#builder-basic').queryBuilder('getSQL', false, true);
+                    console.log(sql_raw);
+                    var newSql = sql_raw.sql.replace(/%/g, '#');
+                    console.log(newSql)
+                },{labels: {'Ok': 'Yes', 'Cancel': 'No'}});
             }
 
         })
