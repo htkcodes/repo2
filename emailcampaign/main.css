@@ -458,6 +458,9 @@ input[type].uk-form-large {
   padding: 8px 6px;
   font-size: 16px; }
 
+.js-modal-confirm, .js-modal-confirm-cancel {
+  border-radius: 12px !important; }
+
 .dropdown {
   position: absolute;
   top: 25px;
