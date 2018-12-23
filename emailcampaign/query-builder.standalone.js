@@ -1754,12 +1754,14 @@ QueryBuilder.prototype.clearErrors = function(node) {
     }
 };
 
+
 /**
  * Adds/Removes error on a Rule or Group
  * @param {Node} node
  * @fires QueryBuilder.changer:displayError
  * @private
  */
+var errorArray=[];
 QueryBuilder.prototype.updateError = function(node) {
     if (this.settings.display_errors) {
         if (node.error === null) {
@@ -1780,6 +1782,17 @@ QueryBuilder.prototype.updateError = function(node) {
              */
             errorMessage = this.change('displayError', errorMessage, node.error, node);
 
+            console.log(errorMessage);
+            console.log();
+
+           var sFilter= node.$el.find(QueryBuilder.selectors.filter_container).eq(0).find(":selected").text();
+
+           var filterError=" <div class=\"uk-alert uk-alert-danger\" data-uk-alert>\n                                            <a href=\"\" class=\"uk-alert-close uk-close\"></a>\n<p>Oops... "+errorMessage+" "+sFilter+"</p>\n</div>";
+           if(!errorArray.includes(filterError))
+{
+    $(".errors").append(filterError);
+}
+errorArray.push(filterError);
             node.$el.addClass('has-error')
                 .find(QueryBuilder.selectors.error_container).eq(0)
                 .attr('title', errorMessage);
@@ -6452,7 +6465,7 @@ QueryBuilder.regional['en'] = {
     "string_exceed_min_length": "Must contain at least {0} characters",
     "string_exceed_max_length": "Must not contain more than {0} characters",
     "string_invalid_format": "Invalid format ({0})",
-    "number_nan": "Not a number",
+    "number_nan": "Seems like no value was entered for",
     "number_not_integer": "Not an integer",
     "number_not_double": "Not a real number",
     "number_exceed_min": "Must be greater than {0}",

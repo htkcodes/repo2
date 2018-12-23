@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="polyfills.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="https://rawgit.com/htkcodes/repo2/master/emailcampaign/query-builder.default.css">
@@ -42,6 +43,9 @@
                 <div>
                   
                         <div class="uk-width-6-10 uk-form-stacked uk-container-center">
+                            <div class="errors">
+                                   
+                            </div>
                                 <div class="uk-form-row">
                                         <label for="" class="uk-form-label text-color">Criteria Name</label>
                                         <div class="uk-form-icon uk-width-7-10">
@@ -129,6 +133,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/js/uikit.js"></script>
+
     <script>
       
         $('#builder-basic').queryBuilder({
@@ -140,6 +146,7 @@
                     type: 'integer',
                     input: 'number',
                     validation: {
+                        format:/^[0-9]*$/,
                         messages: {
                             format: 'Please ensure the input value is a number'
                         }
