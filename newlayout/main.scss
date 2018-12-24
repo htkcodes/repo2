@@ -109,3 +109,9 @@ font-family: $ptsans;
 }
 
 
+.uk-form input[type="checkbox"], .uk-form input[type="radio"] {
+    padding: 0 !important;
+    height: inherit !important;
+}
+
+
