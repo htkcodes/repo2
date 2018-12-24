@@ -335,7 +335,7 @@ label {
   margin-top: 25px; }
 
 .btn-radius {
-  border-radius: 20px;
+  border-radius: 20px !important;
   color: white;
   font-family: "PT Sans", sans-serif; }
 
