@@ -413,6 +413,9 @@ html, body {
   height: 100%;
   overflow-x: hidden; }
 
+.width-i {
+  width: 100% !important; }
+
 .background {
   background-color: #30324F; }
 

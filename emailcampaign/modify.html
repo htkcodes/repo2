@@ -2,289 +2,327 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://rawgit.com/htkcodes/repo2/master/emailcampaign/main.css">
-  <link rel="stylesheet" href="https://rawgit.com/htkcodes/repo2/master/emailcampaign/query-builder.default.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="polyfills.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://rawgit.com/htkcodes/repo2/master/emailcampaign/query-builder.default.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/css/uikit.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-        <div id="dialog-confirm">
-                <p>Once saved you cannot stop the process or start over. Are you sure?</p>
-              </div>
+   
 
+    <div class="form-body">
 
-  <div class="form-body">
-    <div class="logo">
-      <a href="#">
-        <div class="inner"><img src="https://i.imgur.com/VIDLtws.png" alt="NCB Logo" class="logo-size"></div>
-      </a>
-    </div>
-    <div class="row">
-      <div class="img-holder">
-        <div class="bg"></div>
-        <div class="info-holder">
-          <img src="email.png" alt="">
-          <h3 class="text-center sidebar-header">Email Campaign</h3>
+        <div class="logo">
+            <a href="#">
+                <div class="inner"><img src="https://i.imgur.com/VIDLtws.png" alt="NCB Logo" class="logo-size"></div>
+            </a>
         </div>
-      </div>
-      <div class="form">
-        <h3>Email Campaign Generation</h3>
-        <p class="text-left sub-heading">Modify the email campaign criteria below</p>
-        <div class="seperator"></div>
-        <div class="form-content">
-          <div class="form-items">
-            <div class="col-md-12">
-                <h4>Saved Criteria</h4>
-                <div class="selection">
-
-                    <select class="criteria form-control" name="" id="" style="margin-bottom:20px"></select>
+        <div class="uk-grid uk-height-1-1">
+            <div class="uk-width-3-10 uk-text-center uk-vertical-align background uk-height-1-1">
+                <div class="side-img uk-vertical-align-middle">
+                    <img src="email.png" alt="Email Campaign icon">
+                    <h1 class="white-text">Email Campaign</h1>
                 </div>
+            </div>
+            <div class="uk-width-7-10 c_form">
+                <h2 class="accent-text m-t-20">Email Campaign</h2>
+                <p class="accent-text lato">Define the email campaign criteria below</p>
+                <div class="seperator"></div>
 
-              <div id="builder-basic" class="query-builder form-inline">
-                
-              </div>
-      
-              <div class="btn-group">
-                  <button class="btn btn-warning reset" data-target="basic" id="btn-reset">Reset</button>
-                  <button class="btn btn-primary parse-json" data-target="basic" id="get-save">Save</button>
-              </div>
-          </div>
-          </div>
+                <div>
+                  
+                        <div class="uk-width-6-10 uk-form-stacked uk-container-center uk-form">
+                            <div class="errors">
+                                   
+                            </div>
+                                <div class="uk-form-row">
+                                        <label for="" class="uk-form-label text-color">Criteria Name</label>
+                                        <select name="" id="">
+                                                <option value="">Option 1</option>
+                                            </select>
+                                        <p class="uk-form-help-block"></p>
+                                    </div>
+
+                                    <div class="uk-form-row">
+                                           
+                         
+                                <div id="builder-basic" class="query-builder uk-width-5-5">
+
+                                    </div>
+                        
+                                </div>
+                                <div class="btn-group m-t-5">
+                                    <button class="uk-button btn-radius reset uk-button-danger" data-target="basic" id="btn-reset">Reset</button>
+                                    <button class="uk-button uk-button-success btn-radius parse-json" data-target="basic" id="get-save">Save</button>
+                                </div>
+                        </div>
+                    
+                </div>
+            </div>
         </div>
-      </div>
+
     </div>
 
-  </div>
- 
-      
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script src="https://rawgit.com/mistic100/jQuery.extendext/master/jQuery.extendext.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sql-parser-mistic@1.2.2/browser/sql-parser.min.js"></script>
-  <script src="https://rawgit.com/htkcodes/repo2/master/emailcampaign/query-builder.standalone.js"></script>
-<script>
-  $( "#dialog-confirm" ).dialog({
-    autoOpen:false,
-      resizable: false,
-      title:'Are you sure?',
-      height: "auto",
-      width: 400,
-      modal: true,
-      buttons: {
-        "Yes": function() {
-         
-            $(this).dialog('close');
-            var sql_raw = $('#builder-basic').queryBuilder('getSQL', false, true);
-            console.log(sql_raw);
-        },
-        Cancel: function() {
-          $( this ).dialog( "close" );
-        }
-      }
-    });
-</script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://rawgit.com/mistic100/jQuery.extendext/master/jQuery.extendext.min.js"></script>
+    <script src="query-builder.standalone.js"></script>
+    <script>
+        $('#criteria_name').focus();
+
+          $('#criteria_name').focusout(function () {
+             if (!$('#criteria_name').val()) {
+                 $('.uk-form-help-block').html('Please enter a criteria name')
+                 $('#criteria_name').focus();
+               $('#get-save').attr('disabled', true);
+                $(this).addClass('uk-form-danger')
+             }
+         }) 
+        $('#criteria_name').on('keyup', function () {
+            $(this).removeClass('uk-form-danger');
+            $('.uk-form-help-block').html('')
+            $('#get-save').removeAttr('disabled');
+        })
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.27.5/js/uikit.js"></script>
 
     <script>
-
+      
         $('#builder-basic').queryBuilder({
             plugins: ['bt-tooltip-errors'],
 
-            filters: [
-            {
-                id: 'ACCOUNT_NUMBER',
-                label:'Account Number',
-                type: 'integer',
-                input: 'number',
-                operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
-            },
-            {
-                id: 'CI_ARREARS',
-                label:'Arrears(Loans)',
-                type: 'integer',
-                input: 'number',
-                operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
-            },
-            {
-                id: 'CI_MINIMUMAMTDUE',
-                label:'Mininum Payment(Cards)',
-                type: 'integer',
-                input: 'number',
-                operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
-            },
-            {
-                id: 'CI_CURRENTBAL',
-                label:'Current Balance',
-                type: 'integer',
-                input: 'number',
-                operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
-            },
-               {
-                id: 'UPPER(ci_occupation)',
-                label: 'Occupation',
-                type: 'integer',
-                input: 'select',
-                values: {
-                    'DOCTOR':'DOCTOR',
-                     'TEACHER':'TEACHER',
-                    'FIRE':'FIRE',
-                    'SOLDIER':'SOLDIER',
-                    'LAWYER':'LAWYER',
-                    'HOUSEKEEPER':'HOUSEKEEPER',
-                    'CHEF':'CHEF',
-                    'WAITRESS':'WAITRESS',
-                    'OTHERS':''
+            filters: [{
+                    id: 'ACCOUNT_NUMBER',
+                    label: 'Account Number',
+                    type: 'integer',
+                    input: 'number',
+                    validation: {
+                        format:/^[0-9]*$/,
+                        messages: {
+                            format: 'Please ensure the input value is a number'
+                        }
+                    },
+                    operators: ['equal', 'not_equal', 'greater', 'greater_or_equal', 'between',
+                        'not_between', 'less', 'less_or_equal'
+                    ],
                 },
-                operators: ['contains','not_contains']
-            }, {
-                id: 'UPPER(CI_CURRENCY)',
-                label: 'Currency',
-                type: 'integer',
-                input: 'select',
-                values: [
-                    'GBP',
-                     'USD',
-                     'CAD',
-                     'JMD'
-                ],
-                operators: ['equal', 'not_equal']
-            }, {
-                id: 'CI_PAYMENTDUEDATE',
-                label: 'Payment Due Date',
-                type: 'date',
-                validation:{
-                    format:'DD/MMM/YYYY'
+                {
+                    id: 'CI_ARREARS',
+                    label: 'Arrears(Loans)',
+                    type: 'integer',
+                    input: 'number',
+                    operators: ['equal', 'not_equal', 'greater', 'greater_or_equal', 'between',
+                        'not_between', 'less', 'less_or_equal'
+                    ]
                 },
-                plugin:'datepicker',
-                plugin_config:{
-                    format:'dd/M/yyyy',
-                    autoclose:true
+                {
+                    id: 'CI_MINIMUMAMTDUE',
+                    label: 'Mininum Payment(Cards)',
+                    type: 'integer',
+                    input: 'number',
+                    operators: ['equal', 'not_equal', 'greater', 'greater_or_equal', 'between',
+                        'not_between', 'less', 'less_or_equal'
+                    ]
                 },
-                operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
-            },
-            {
-                id: 'CI_DATEOFBIRTH',
-                label: 'Date of Birth',
-                type: 'date',
-                validation:{
-                    format:'DD/MMM/YYYY'
+                {
+                    id: 'CI_CURRENTBAL',
+                    label: 'Current Balance',
+                    type: 'integer',
+                    input: 'number',
+                    operators: ['equal', 'not_equal', 'greater', 'greater_or_equal', 'between',
+                        'not_between', 'less', 'less_or_equal'
+                    ]
                 },
-                plugin:'datepicker',
-                plugin_config:{
-                    format:'dd/M/yyyy',
-                    autoclose:true
+                {
+                    id: 'UPPER(ci_occupation)',
+                    label: 'Occupation',
+                    type: 'integer',
+                    input: 'select',
+                    values: {
+                        'DOCTOR': 'DOCTOR',
+                        'TEACHER': 'TEACHER',
+                        'FIRE': 'FIRE',
+                        'SOLDIER': 'SOLDIER',
+                        'LAWYER': 'LAWYER',
+                        'HOUSEKEEPER': 'HOUSEKEEPER',
+                        'CHEF': 'CHEF',
+                        'WAITRESS': 'WAITRESS',
+                        'OTHERS': ''
+                    },
+                    operators: ['contains', 'not_contains']
+                }, {
+                    id: 'UPPER(CI_CURRENCY)',
+                    label: 'Currency',
+                    type: 'integer',
+                    input: 'select',
+                    values: [
+                        'GBP',
+                        'USD',
+                        'CAD',
+                        'JMD'
+                    ],
+                    operators: ['equal', 'not_equal']
+                }, {
+                    id: 'CI_PAYMENTDUEDATE',
+                    label: 'Payment Due Date',
+                    type: 'date',
+                    validation: {
+                        format: 'DD/MMM/YYYY'
+                    },
+                    plugin: 'datepicker',
+                    plugin_config: {
+                        format: 'dd/M/yyyy',
+                        autoclose: true
+                    },
+                    operators: ['equal', 'not_equal', 'greater', 'greater_or_equal', 'between',
+                        'not_between', 'less', 'less_or_equal'
+                    ]
                 },
-                operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
-            },
-            {
-                id: 'CI_DPD',
-                label: 'Days Past Due',
-                type: 'integer',
-                input: 'number',
-                operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
-            },
-            {
-                id: 'CI_TRN_SSN',
-                label: 'TRN',
-                type: 'string',
-                input: 'text',
-                validation:{
-format:/^\d{9}?$/,
-messages:{
-    format:'A TRN Contains 9 Digits'
-}
+                {
+                    id: 'CI_DATEOFBIRTH',
+                    label: 'Date of Birth',
+                    type: 'date',
+                    validation: {
+                        format: 'DD/MMM/YYYY'
+                    },
+                    plugin: 'datepicker',
+                    plugin_config: {
+                        format: '\'dd/M/yyyy\'',
+                        autoclose: true
+                    },
+                    operators: ['equal', 'not_equal', 'greater', 'greater_or_equal', 'between',
+                        'not_between', 'less', 'less_or_equal'
+                    ]
                 },
-                operators: ['equal','not_equal','contains','not_contains'],
-            },  {
-                id: 'CI_TOTALEXPOSURE',
-                label: 'Total Exposure',
-                type: 'integer',
-                input: 'number',
-                operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
-            }, {
-                id: 'CI_BROKENPROMISE',
-                label: 'Broken Promise',
-                type: 'integer',
-                input: 'number',
-                operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
-            },{
-                id: 'PROMISEAMOUNT',
-                label: 'Promise to Pay',
-                type: 'integer',
-                input: 'number',
-                operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
-            },{
-                id: 'CI_PRINCIPALBALANCEOUTSTANDING',
-                label: 'Principal Balance Outstanding',
-                type: 'double',
-                input: 'number',
-                operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
-            },{
-                id: 'UPPER(ACCOUNTTYPE)',
-                label: 'Product Type',
-                type: 'integer',
-                input: 'select',
-                values: [
-                    'CARD',
-                     'LOAN'
-                ],
-                operators: ['equal', 'not_equal']
-            },{
-                id: 'UPPER(CI_NATUREOFADVANCE)',
-                label: 'Nature of Advance',
-                type: 'integer',
-                input: 'select',
-                values: [
-                    'SECURED',
-                     'UNSECURED'
-                ],
-                operators: ['contains', 'not_contains','in']
-            },{
-                id: 'sol_id',
-                label: 'SOL ID',
-                type: 'string',
-                input: 'text',
-                validation:{
-format:/^\d{3}?$/,
-messages:{
-    format:'Only 3 Digits are allowed.'
-}
+                {
+                    id: 'CI_DPD',
+                    label: 'Days Past Due',
+                    type: 'integer',
+                    input: 'number',
+                    operators: ['equal', 'not_equal', 'greater', 'greater_or_equal', 'between',
+                        'not_between', 'less', 'less_or_equal'
+                    ]
                 },
-                operators: ['equal','not_equal','greater','greater_or_equal','between','not_between','less','less_or_equal']
-            }, {
-                id:'UPPER(ACCSTATUS)',
-                label: 'Account Status',
-                type: 'integer',
-                input: 'select',
-                values: [
-                     'D015',
-                     'D030',
-                     'D060',
-                     'D090',
-                     'WOFF',
-                     'BLBD',
-                     
-                ],
-                operators: ['equal', 'not_equal','in']
-            },],
+                {
+                    id: 'CI_TRN_SSN',
+                    label: 'TRN',
+                    type: 'string',
+                    input: 'text',
+                    validation: {
+                        format: /^\d{9}?$/,
+                        messages: {
+                            format: 'A TRN Contains 9 Digits'
+                        }
+                    },
+                    operators: ['equal', 'not_equal', 'contains', 'not_contains'],
+                }, {
+                    id: 'CI_TOTALEXPOSURE',
+                    label: 'Total Exposure',
+                    type: 'integer',
+                    input: 'number',
+                    operators: ['equal', 'not_equal', 'greater', 'greater_or_equal', 'between',
+                        'not_between', 'less', 'less_or_equal'
+                    ]
+                }, {
+                    id: 'CI_BROKENPROMISE',
+                    label: 'Broken Promise',
+                    type: 'integer',
+                    input: 'number',
+                    operators: ['equal', 'not_equal', 'greater', 'greater_or_equal', 'between',
+                        'not_between', 'less', 'less_or_equal'
+                    ]
+                }, {
+                    id: 'PROMISEAMOUNT',
+                    label: 'Promise to Pay',
+                    type: 'integer',
+                    input: 'number',
+                    operators: ['equal', 'not_equal', 'greater', 'greater_or_equal', 'between',
+                        'not_between', 'less', 'less_or_equal'
+                    ]
+                }, {
+                    id: 'CI_PRINCIPALBALANCEOUTSTANDING',
+                    label: 'Principal Balance Outstanding',
+                    type: 'double',
+                    input: 'number',
+                    operators: ['equal', 'not_equal', 'greater', 'greater_or_equal', 'between',
+                        'not_between', 'less', 'less_or_equal'
+                    ]
+                }, {
+                    id: 'UPPER(ACCOUNTTYPE)',
+                    label: 'Product Type',
+                    type: 'integer',
+                    input: 'select',
+                    values: [
+                        'CARD',
+                        'LOAN'
+                    ],
+                    operators: ['equal', 'not_equal']
+                }, {
+                    id: 'UPPER(CI_NATUREOFADVANCE)',
+                    label: 'Nature of Advance',
+                    type: 'integer',
+                    input: 'select',
+                    values: [
+                        'SECURED',
+                        'UNSECURED'
+                    ],
+                    operators: ['contains', 'not_contains', 'in']
+                }, {
+                    id: 'sol_id',
+                    label: 'SOL ID',
+                    type: 'string',
+                    input: 'text',
+                    validation: {
+                        format: /^\d{3}?$/,
+                        messages: {
+                            format: 'Only 3 Digits are allowed.'
+                        }
+                    },
+                    operators: ['equal', 'not_equal', 'greater', 'greater_or_equal', 'between',
+                        'not_between', 'less', 'less_or_equal'
+                    ]
+                }, {
+                    id: 'UPPER(ACCSTATUS)',
+                    label: 'Account Status',
+                    type: 'integer',
+                    input: 'select',
+                    values: [
+                        'D015',
+                        'D030',
+                        'D060',
+                        'D090',
+                        'WOFF',
+                        'BLBD',
 
-          
+                    ],
+                    operators: ['equal', 'not_equal', 'in']
+                },
+            ],
+
         });
 
         $('#btn-reset').on('click', function () {
             $('#builder-basic').queryBuilder('reset');
         });
 
-       
+    
+
+
 
         $('#btn-get').on('click', function () {
             var result = $('#builder-basic').queryBuilder('getRules');
@@ -293,17 +331,21 @@ messages:{
                 console.log(JSON.stringify(result, null, 2));
             }
         });
-        $("#get-save").on('click',function()
-        {
-            if($('#builder-basic').queryBuilder('validate') == false)
-            {
+        $("#get-save").on('click', function () {
+            if ($('#builder-basic').queryBuilder('validate') == false) {
                 return;
+            } else {
+                UIkit.modal.confirm('Once saved you cannot stop the process or start over. Are you sure you want to continue?', function(){
+                    var sql_raw = $('#builder-basic').queryBuilder('getSQL', false, true);
+                    console.log(sql_raw);
+                    var newSql = sql_raw.sql.replace(/%/g, '#');
+                    console.log(newSql)
+                },{labels: {'Ok': 'Yes', 'Cancel': 'No'}});
             }
-            else{
-                $("#dialog-confirm").dialog('open');
-            }
-           
+
         })
+
+
     </script>
 
 </body>
