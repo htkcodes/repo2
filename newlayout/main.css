@@ -325,6 +325,9 @@ label {
 .text-color {
   color: #707F91; }
 
+.white-text {
+  color: white !important; }
+
 .uk-form input {
   border-radius: 8px;
   padding: 4px 6px !important;
