@@ -48,22 +48,33 @@
                                         <label for="" class="uk-form-label text-color">Criteria Name</label>
                                         <div class="uk-form-icon uk-width-7-10">
                                         <i class="uk-icon-info"></i>
-                                        <input type="text" name="" id="criteria_name" class="uk-width-3-5 uk-form-large">
+                                  
                                         </div>
                                         <p class="uk-form-help-block"></p>
                                     </div>
 
                                     <div class="uk-form-row">
                                            
-                         
-                                <div id="builder-basic" class="query-builder uk-width-5-5">
+                                        <div id="my-id" class="uk-modal">
+                                            <div class="uk-modal-dialog">
+                                                <a class="uk-modal-close uk-close"></a>
+                                                <div id="builder-basic" class="query-builder uk-width-5-5">
 
-                                    </div>
+                                                </div>
+                                                <div class="btn-group m-t-5">
+                                                    <button class="uk-button btn-radius reset uk-button-danger" data-target="basic" id="btn-reset">Reset</button>
+                                                    <button class="uk-button uk-button-success btn-radius parse-json" data-target="basic" id="get-save">Save</button>
+                                                    <button class="uk-button uk-button-success btn-radius parse-json" data-uk-modal="{target:'#my-id'}">Toggle Modal</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                              
                         
                                 </div>
                                 <div class="btn-group m-t-5">
                                     <button class="uk-button btn-radius reset uk-button-danger" data-target="basic" id="btn-reset">Reset</button>
                                     <button class="uk-button uk-button-success btn-radius parse-json" data-target="basic" id="get-save">Save</button>
+                                    <button class="uk-button uk-button-success btn-radius parse-json" data-uk-modal="{target:'#my-id'}">Toggle Modal</button>
                                 </div>
                         </div>
                     

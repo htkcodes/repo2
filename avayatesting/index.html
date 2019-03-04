@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
+
+    <style>
+    .highlight{
+        color: white;
+        background-color: blue
+    }
+    .highlight:hover{
+        background-color: blue;
+    }
+
+    .datepicker table tr td.day:hover, .datepicker table tr td.day.focused {
+    background:blue;
+    cursor: pointer;
+}
+    </style>
+    
+</head>
+<body>
+        <div class="container">
+                <div class="row">
+                    <div class='col-sm-6'>
+                        <div class="form-group">
+                           <input type="text" name="" id="datepicker">
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript">
+     let enabledDates = ["2/12/2019"];
+
+     for(var i=0;i<enabledDates.length;i++)
+     {
+         enabledDates[i] = enabledDates[i].replace(/\b0/g,'');
+     }
+      console.log(enabledDates)
+   
+
+    
+     console.log()
+        $("#datepicker").datepicker({
+            format: 'mm/dd/yyyy',
+            beforeShowDay: function (date) {
+                var full=(date.getMonth()+1)+'/'+date.getDate()+'/'+date.getFullYear();   
+      if(enabledDates.indexOf(full) != -1)
+      {
+        return{classes: 'highlight', tooltip: ''}
+      }
+      return false;
+    }
+        })
+
+        $("#datepicker").on('change',function(){
+console.log($(this).val())
+        })
+    </script>
+</body>
+</html>
