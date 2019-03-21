@@ -1787,15 +1787,15 @@ QueryBuilder.prototype.updateError = function(node) {
 
            var sFilter= node.$el.find(QueryBuilder.selectors.filter_container).eq(0).find(":selected").text();
 
-           var filterError=" <div class=\"uk-alert uk-alert-danger\" data-uk-alert>\n                                            <a href=\"\" class=\"uk-alert-close uk-close\"></a>\n<p>Oops... "+errorMessage+" "+sFilter+"</p>\n</div>";
+           var filterError = "<div class=\"alert alert-danger alert-dismissible fade in\" role=\"alert\">\n<span\n                                                aria-hidden=\"true\">&times;</span></button>\n                                        <strong>Warning!</strong>\n                                        <p class=\"errormsg\" style=\"display: inline-block\">".concat(errorMessage, " ").concat(sFilter, "</p>\n</div>");
            if(!errorArray.includes(filterError))
 {
-    $(".errors").append(filterError);
+    $(".qerrors").append(filterError);
 }
 errorArray.push(filterError);
-            node.$el.addClass('has-error')
-                .find(QueryBuilder.selectors.error_container).eq(0)
-                .attr('title', errorMessage);
+node.$el.addClass('has-error')
+.find(QueryBuilder.selectors.error_container).eq(0)
+.attr('title', errorMessage);
         }
     }
 };
@@ -1969,6 +1969,7 @@ QueryBuilder.prototype.validate = function(options) {
     }, options);
 
     this.clearErrors();
+    $(".qerrors").empty();
 
     var self = this;
 
@@ -2976,23 +2977,23 @@ QueryBuilder.templates.group = '\
 <div id="{{= it.group_id }}" class="rules-group-container"> \
   <div class="rules-group-header m-b-15"> \
     <div class="btn-group pull-right group-actions"> \
-      <button type="button" class="uk-button uk-button-small uk-button-success btn-radius" data-add="rule"> \
+      <button type="button" class="btn btn-query float-none" data-add="rule"> \
         <i class="{{= it.icons.add_rule }}"></i> {{= it.translate("add_rule") }} \
       </button> \
       {{? it.settings.allow_groups===-1 || it.settings.allow_groups>=it.level }} \
-        <button type="button" class="uk-button uk-button-small uk-button-success btn-radius" data-add="group"> \
+        <button type="button" class="btn btn-query float-none" data-add="group"> \
           <i class="{{= it.icons.add_group }}"></i> {{= it.translate("add_group") }} \
         </button> \
       {{?}} \
       {{? it.level>1 }} \
-        <button type="button" class="uk-button uk-button-danger btn-radius" data-delete="group"> \
+        <button type="button" class="btn btn-query float-none danger" data-delete="group"> \
           <i class="{{= it.icons.remove_group }}"></i> {{= it.translate("delete_group") }} \
         </button> \
       {{?}} \
     </div> \
     <div class="btn-group group-conditions"> \
       {{~ it.conditions: condition }} \
-        <label class="btn btn-xs btn-primary"> \
+        <label class="btn btn-xs btn-primary cond"> \
           <input type="radio" name="{{= it.group_id }}_cond" value="{{= condition }}"> {{= it.translate("conditions", condition) }} \
         </label> \
       {{~}} \
@@ -3010,7 +3011,7 @@ QueryBuilder.templates.rule = '\
 <div id="{{= it.rule_id }}" class="rule-container"> \
   <div class="rule-header"> \
     <div class="btn-group pull-right rule-actions m-t-3"> \
-      <button type="button" class="uk-button uk-button-danger btn-radius uk-button-small" data-delete="rule"> \
+      <button type="button" class="btn btn-query float-none danger m-t-3" data-delete="rule"> \
         <i class="{{= it.icons.remove_rule }}"></i> {{= it.translate("delete_rule") }} \
       </button> \
     </div> \

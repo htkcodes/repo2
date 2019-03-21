@@ -7,7 +7,7 @@
 @import './mixins/mixins';
 @import './table/table';
 @import './modal/modal';
-@import './querybuilder/query'
+@import './querybuilder/query';
 
 
 
@@ -318,10 +318,24 @@ li {
     border-color: $primary-color;
     font-weight: 500;
 }
+.btn-success {
+    background:$success;
+    border-color: $success;
+    color: #fff;
+}
 
+
+.danger{
+    background: $red;
+    border-color:transparent;
+}
 .btn-ft {
     padding: 1.15rem 2rem;
     margin-top: 5.2rem;
+}
+
+.float-none{
+    float: none !important;
 }
 
 
@@ -357,3 +371,9 @@ li {
     background-color: $primary-color;
     border-color: $primary-color;
 }
+
+.hide{
+    visibility: hidden;
+    transition: 1s;
+}
+

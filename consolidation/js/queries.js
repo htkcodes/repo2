@@ -43,9 +43,9 @@ $('#builder-basic').queryBuilder({
     {
       id: 'ACCOUNT_NUMBER',
       label: 'Account Number',
-      type: 'integer',
-      input: 'number',
-      operators: ['equal', 'not_equal', 'greater', 'greater_or_equal', 'between', 'not_between', 'less', 'less_or_equal'],
+      type: 'string',
+      input: 'text',
+      operators: ['contains','not_contains'],
     },
     {
       id: 'CI_ARREARS',
@@ -119,7 +119,7 @@ $('#builder-basic').queryBuilder({
       id: 'CI_DPD',
       label: 'Days Past Due',
       type: 'integer',
-      input: 'number',
+      input: 'text',
       operators: ['equal', 'not_equal', 'greater', 'greater_or_equal', 'between', 'not_between', 'less', 'less_or_equal'],
     },
     {

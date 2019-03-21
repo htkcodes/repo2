@@ -1,7 +1,38 @@
 .query-builder .rules-group-container {
     border: none;
-    background: #30324F; }
+    background: $primary-color;
+ }
   
   .query-builder .rules-list > *::before, .query-builder .rules-list > *::after {
     border-color: transparent; }
+
+ .query-builder .rule-container, .query-builder .rule-placeholder {
+        background: rgba(255, 255, 255, 1);
+        border: 0px solid #fff;
+        border-radius: .25rem;
+    }
+
+    .btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary {
+        color: #fff;
+        background-color:$primary-color;
+        border-color: $white;
+    }
+
+    .cond.active{
+        &:hover{
+            border-color: $white !important;
+        }
+
+    }
+
+    .btn-query{
+        background: transparent;
+        border:1px solid #fff;
+        color: $white;
+        border-radius: 0.25rem !important;
+    
+        &:hover,&:focus{
+            color: $white !important;
+        }
+    }
   
