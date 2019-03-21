@@ -1,0 +1,36 @@
+.modal-header{
+    border:0;
+    padding:1.8rem;
+    display: table;        /* IE < 10, Opera *Presto* Desktop (Now dead) */
+    display: -webkit-box;  /* Safari 3.1 - 6, Chrome < 21 (2009 Spec), UCBrowser Android */
+    display: -moz-box;     /* Firefox 2 - 27 (2009 Spec), UCMini Android */
+    display: -ms-flexbox;  /* IE10 (2012 Syntax) */
+    display: -webkit-flex; /* Safari 6.1 - 8, Android < 4.4, BB < 10, Chrome 21 - 28 */
+    display: flex;         /* Edge 12+, Firefox 28+, Blink, Safari 9+, Opera Mini 8+ */
+    border-top-right-radius: .3rem;
+    border-top-left-radius:.3rem;
+
+    .close{
+        padding: 1rem;
+        margin: -1rem -1rem -1rem auto;
+        display: table-cell;
+        float: right;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1;
+        color: $black;
+        opacity: .5;
+    }
+}
+
+.modal-title{
+  display:table-cell;  
+  font-size: 1.8rem !important;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.modal-open .modal{
+    background-color: rgba(255,255,255,0.93) !important;
+}
+
