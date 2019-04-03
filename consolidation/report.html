@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Avaya </title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/b-1.5.4/b-flash-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/datatables.min.css"/>
+    <link rel="stylesheet" href="./css/query-builder.default.css">
     <link rel="stylesheet" href="css/main.css">
 
     
@@ -45,17 +46,17 @@
         <div class="sidebar">
             <div class="scroll">
                 <ul>
-                    <li class="active">
+                    <li>
                         <a href="">
                             <i class="mdi mdi-chart-areaspline">
                             </i>
                             <br>
-                            <span>Consolidation Report</span>
+                            <span>Avaya File Generation & Report</span>
                         </a>
                     </li>
 
 
-                    <li>
+                    <li class="active">
                             <a href="">
                                 <i class="mdi mdi-chart-bar-stacked">
                                 </i>
@@ -86,11 +87,11 @@
             <div class="container-fluid">
                 <div class="row page-title">
                     <div class="col">
-                        <h4>Consolidation Report</h4>
+                        <h4>Avaya Campaign File Generation & Report</h4>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6 col-md-offset-3">
                         <div class="card">
                             <div class="errors hidden center-block p-t-15" style="width:50%">
                                     <div class="alert alert-danger alert-dismissible fade in" role="alert">
@@ -100,47 +101,22 @@
                                             <p class="errormsg" style="display: inline-block"></p>
                                         </div>
                             </div>
-                            <div class="card-body">
-                                <div class="card-title">Consolidation Report Date Picker</div>
-                                <div class="row">
-                                    <div class="col-md-3">
+                            <div class="card-body pb-5">
+                                <div class="card-title">Avaya Campaign File Generation & Report</div>
                                         <h5 class="mt-5">
-                                            Start Date
+                                           Campaign Name
                                         </h5>
-                                        <input type="text" class="form-control startdate">
-                                    </div>
-                                    <div class="col-md-3">
-
-                                        <h5 class="mt-5">
-                                            End Date
-                                        </h5>
-                                        <input type="text" class="form-control enddate">
-                                    </div>
-                                    <div class="col-md-2">
-                                        <h5 class="mt-5">Campaign Type</h5>
-                                        <select name="" id="type" class="form-control">
-                                            <option value="-1" disabled selected class="text-muted" style="display: none;">Select Campaign Type</option>
-                                            <option value="CARDS">CARD</option>
-                                            <option value="LOANS">LOANS</option>
-                                        </select>
-                                    </div>
-                                   
-                                    <div class="col-md-2">
-
-                                        <h5 class="mt-5">
-                                            Count
-                                        </h5>
-                                        <input type="number" name="count" id="count" class="form-control" max="5000">
-                                    </div>
-                                    <div class="col-md-2">
-
-
-
-                                        <button id="submit" class="btn btn-primary btn-ft">Submit</button>
-
-                                    </div>
-
-                                </div>
+                                    <p class="card-text">
+                                            <select name="" id="type" class="form-control">
+                                                    <option value="-1" disabled selected class="text-muted" style="display: none;">Select a Campaign Name</option>
+                                                    <option value="CARDS">CARD</option>
+                                                    <option value="LOANS">LOANS</option>
+                                                </select>
+                                    </p>        
+                            </div>
+                            <div class="card-footer mb-3 p-xl-5">
+                                    <button id="filter" class="btn btn-primary btn-card">Filter campaign report</button>
+                                    <button class="btn btn-primary btn-card ">Get campaign report</button>
                             </div>
                         </div>
                     </div>
@@ -182,6 +158,34 @@
 
             </div>
         </div>
+
+        <div class="modal" id="cname" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                            <div class="errors hidden center-block p-t-15" style="width:50%">
+                                    <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                    aria-hidden="true">&times;</span></button>
+                                            <strong>Warning!</strong>
+                                            <p class="errormsg" style="display: inline-block"></p>
+                                        </div>
+                            </div>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Attention Required.</h5>
+                           
+                        </div>
+                        <div class="modal-body">
+                                <div id="builder-basic" class="query-builder">
+
+                                    </div>
+                        </div>
+                        <div class="modal-footer">
+                           
+                            <button type="button" id="continue" class="btn btn-primary">Continue</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -197,12 +201,11 @@
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
-    <script src="./js/index.js"></script>
+    <script src="./js/query-builder.standalone.js"></script>
+    <script src="./js/report.js"></script>
 
     <script>
-    $(window).resize(_.debounce(function(){
-        console.log('resize')
-    },500))
+   
 
 
     function setsize(){	

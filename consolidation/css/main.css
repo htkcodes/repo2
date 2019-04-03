@@ -648,6 +648,9 @@ table.dataTable.no-footer {
 html {
   overflow: hidden; }
 
+.pb-5, .py-5 {
+  padding-bottom: 3rem !important; }
+
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -840,6 +843,10 @@ li {
     border: 0 solid #fff;
     box-shadow: 2px 3px 10px 0px rgba(119, 119, 119, 0.1);
     border-radius: .25rem; }
+    .content .card .btn-card, .content-c .card .btn-card {
+      font-size: 1.5rem;
+      padding-right: 2rem;
+      padding-left: 2rem; }
     .content .card .card-body, .content-c .card .card-body {
       padding: 2.5rem; }
       .content .card .card-body .card-intro-title, .content-c .card .card-body .card-intro-title {
@@ -849,6 +856,12 @@ li {
         font-size: 1.8rem;
         line-height: 2.2rem;
         margin-bottom: 0.75rem; }
+    .content .card .card-footer, .content-c .card .card-footer {
+      border-color: #F0F0F2;
+      background: #fff;
+      border-top: 1px solid rgba(0, 0, 0, 0.125); }
+      .content .card .card-footer:last-child, .content-c .card .card-footer:last-child {
+        border-radius: 0 0 calc(.25rem - 1px) calc(.25rem - 1px); }
 
 .content-c {
   margin-left: 0; }
@@ -953,5 +966,11 @@ li {
 .hide {
   visibility: hidden;
   transition: 1s; }
+
+@media (min-width: 1200px) {
+  .p-xl-5 {
+    padding: 3rem !important; } }
+.mb-3, .my-3 {
+  margin-bottom: 1rem !important; }
 
 /*# sourceMappingURL=main.css.map */
