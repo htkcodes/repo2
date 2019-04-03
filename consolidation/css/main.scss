@@ -300,6 +300,7 @@ li {
             padding-left: 2rem;
         }
 
+
         .card-body {
             padding: 2.5rem;
 
@@ -326,7 +327,10 @@ li {
 
         
     }
+
+   
 }
+
 
 .content-c{
     @extend .content;
@@ -403,6 +407,12 @@ li {
 .danger{
     background: $red;
     border-color:transparent;
+    color: $white;
+
+    &:hover{
+        background: darken($red,10%);
+        color: $white;
+    }
 }
 .btn-ft {
     padding: 1.15rem 2rem;

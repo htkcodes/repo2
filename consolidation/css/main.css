@@ -617,6 +617,9 @@ table.dataTable.no-footer {
   margin-bottom: 0;
   line-height: 1.5; }
 
+.modal-title-r {
+  margin: 0 auto; }
+
 .query-builder .rules-group-container {
   border: none;
   background: #4A81FD; }
@@ -924,7 +927,11 @@ li {
 
 .danger {
   background: #ff0000;
-  border-color: transparent; }
+  border-color: transparent;
+  color: #fff; }
+  .danger:hover {
+    background: #cc0000;
+    color: #fff; }
 
 .btn-ft {
   padding: 1.15rem 2rem;
