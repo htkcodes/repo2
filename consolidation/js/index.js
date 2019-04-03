@@ -10,23 +10,7 @@ function loadModal() {
     $("input#campaign").focus();
 }
 
-/**
- * Displays Alert upon Error
- * @param {str} msg Message to display
- */
-function errorAlert(msg) {
-    $(".errors").removeClass("hidden");
-    $(".errormsg").html(msg);
-}
 
-/**
- * Displays Success
- * @param {str} msg Message to display
- */
-function sucessAlert(msg) {
-    $(".success").removeClass("hidden");
-    $(".sucessmsg").html(msg);
-}
 
 
 
@@ -64,6 +48,11 @@ function isValidateCName() {
 
 
     return !0;
+
+}
+
+function isCampaignExist()
+{
 
 }
 
@@ -113,10 +102,7 @@ $(this).focusout(function(){
 
 });
 
-function clearError()
-{
-    $(".errors").addClass("hidden");
-}
+
 function modalHandler(isValidate,reInit)
 {
    
@@ -189,8 +175,20 @@ function insertEmailCampaign()
 var values="'"+campaignName+"'"+","+"'"+removeNewLine+"'"+","+"'"+username+"'"+","+"'"+status+"'";
     var result= insertRecordTable(tableName,columns,values);
     if (result==="SUCCESS") {
- sucessAlert("Campaign was successfully to the email campaign queue.")
+ successAlert("Campaign was successfully to the email campaign queue.")
     } else {
      errorAlert("An error occured.please try again later or enter a different campaign name.");
     }
 }
+
+$('#myTable').DataTable( {
+    "ajax": "data/objects.txt",
+    "columns": [
+      {"data": "name"},
+      {"data": "position"},
+      {"data": "office"},
+      {"data": "extn"},
+      {"data": "start_date"},
+      {"data": "salary"},
+    ],
+  } );

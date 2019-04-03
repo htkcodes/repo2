@@ -30,6 +30,9 @@ $(function() {
 		$("body").removeClass("compact-sidebar");
 		$("body").toggleClass("show-menu");
 	});
+	/**
+	 * Fira CODING
+	 */
 
 	$("#hide-menu").click(function(e) {
 		e.preventDefault();

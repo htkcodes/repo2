@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/b-1.5.4/b-flash-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/datatables.min.css"/>
+    <link rel="stylesheet" href="css/main.css">
+
+    
+</head>
+
+<body onload="setsize()">
+    <div class="wrapper">
+
+        <div class="nav-header">
+            <div class="logo">
+                <a href="">
+                    <b><img src="./img/jncb-logo.png" alt=""></b>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <img src="https://i.imgur.com/VIDLtws.png" alt="logo">
+                </div>
+                <div class="header-right">
+                    <ul>
+                        <li class="icons">
+                            <a href="" class="log-user">
+                                <span>Welcome, Jodi-ann</span>
+
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="scroll">
+                <ul>
+                    <li class="active">
+                        <a href="">
+                            <i class="mdi mdi-chart-areaspline">
+                            </i>
+                            <br>
+                            <span>Consolidation Report</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                            <a href="">
+                                <i class="mdi mdi-chart-bar-stacked">
+                                </i>
+                                <br>
+                                <span>Avaya File Generation & Report</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="" class="has-arrow">
+                            <i class="mdi mdi-email"></i>
+                            <br>
+                            <span>Email Functions</span>
+                        </a>
+                        <ul>
+                            <li><a href="">test</a></li>
+                            <li><a href="">test</a></li>
+                        </ul>
+                        </li>
+
+
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="content" style="min-height:828px">
+            <div class="container-fluid">
+                <div class="row page-title">
+                    <div class="col">
+                        <h4>Consolidation Report</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="errors hidden center-block p-t-15" style="width:50%">
+                                    <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                    aria-hidden="true">&times;</span></button>
+                                            <strong>Warning!</strong>
+                                            <p class="errormsg" style="display: inline-block"></p>
+                                        </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-title">Consolidation Report Date Picker</div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <h5 class="mt-5">
+                                            Start Date
+                                        </h5>
+                                        <input type="text" class="form-control startdate">
+                                    </div>
+                                    <div class="col-md-3">
+
+                                        <h5 class="mt-5">
+                                            End Date
+                                        </h5>
+                                        <input type="text" class="form-control enddate">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h5 class="mt-5">Campaign Type</h5>
+                                        <select name="" id="type" class="form-control">
+                                            <option value="-1" disabled selected class="text-muted" style="display: none;">Select Campaign Type</option>
+                                            <option value="CARDS">CARD</option>
+                                            <option value="LOANS">LOANS</option>
+                                        </select>
+                                    </div>
+                                   
+                                    <div class="col-md-2">
+
+                                        <h5 class="mt-5">
+                                            Count
+                                        </h5>
+                                        <input type="number" name="count" id="count" class="form-control" max="5000">
+                                    </div>
+                                    <div class="col-md-2">
+
+
+
+                                        <button id="submit" class="btn btn-primary btn-ft">Submit</button>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="myTable">
+                                            <caption class="card-title">Dialer Performance Report</caption>
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Position</th>
+                                                <th>Office</th>
+                                                <th>Extn.</th>
+                                                <th>Start date</th>
+                                                <th>Salary</th>
+                                              
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Position</th>
+                                                <th>Office</th>
+                                                <th>Extn.</th>
+                                                <th>Start date</th>
+                                                <th>Salary</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+
+ 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/b-1.5.4/b-flash-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/datatables.min.js"></script>
+
+
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
+    <script src="./js/index.js"></script>
+
+    <script>
+    $(window).resize(_.debounce(function(){
+        console.log('resize')
+    },500))
+
+
+    function setsize(){	
+	window.moveTo(1,1);
+    window.resizeTo(screen.width,screen.height);
+    
+}
+    </script>
+</body>
+
+</html>

@@ -645,6 +645,9 @@ table.dataTable.no-footer {
   .btn-query:hover, .btn-query:focus {
     color: #fff !important; }
 
+html {
+  overflow: hidden; }
+
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -688,7 +691,7 @@ li {
   position: relative;
   height: 100%; }
 
-.nav-header {
+.nav-header, .nav-header-c {
   width: 11rem;
   height: 10.9rem;
   display: inline-block;
@@ -697,15 +700,18 @@ li {
   background-color: #fff;
   left: 0;
   top: 0; }
-  .nav-header .logo {
+  .nav-header .logo, .nav-header-c .logo {
     z-index: 999;
     margin-top: 1rem;
     margin-left: 1.7rem; }
-    .nav-header .logo a {
+    .nav-header .logo a, .nav-header-c .logo a {
       padding: 0.5rem 0.5rem;
       display: block; }
 
-.header {
+.nav-header-c {
+  height: 6rem; }
+
+.header, .header-c {
   background-color: #fff;
   width: calc(100% - 6rem);
   height: 6rem;
@@ -715,24 +721,27 @@ li {
   padding: 0 1.5rem;
   background: #fff;
   box-shadow: 0 0 1.5rem rgba(120, 130, 140, 0.13); }
-  .header .header-content {
+  .header .header-content, .header-c .header-content {
     margin-left: 0; }
-  .header .header-left {
+  .header .header-left, .header-c .header-left, .header .header-left-c, .header-c .header-left-c {
     float: left;
     line-height: 6rem; }
-    .header .header-left img {
+    .header .header-left img, .header-c .header-left img, .header .header-left-c img, .header-c .header-left-c img {
       max-width: 10rem; }
-  .header .header-right {
+  .header .header-left-c, .header-c .header-left-c {
+    float: none;
+    text-align: center; }
+  .header .header-right, .header-c .header-right {
     float: right;
     line-height: 4.8rem;
     margin-top: 0.8rem; }
-    .header .header-right .icons {
+    .header .header-right .icons, .header-c .header-right .icons {
       float: left;
       margin: 0;
       padding: 0;
       padding: 1.1rem 5.5rem;
       position: relative; }
-    .header .header-right .icons > a {
+    .header .header-right .icons > a, .header-c .header-right .icons > a {
       top: -1.6rem;
       position: relative;
       display: inline-block;
@@ -742,6 +751,11 @@ li {
       background-color: transparent;
       padding: 0 .5rem 0 1rem;
       font-size: 1.8rem; }
+
+.header-c {
+  box-shadow: none; }
+  .header-c .header-left-c p {
+    font-size: 2.4rem; }
 
 .sidebar {
   width: 11rem;
@@ -804,13 +818,13 @@ li {
         border-color: #4A81FD;
         padding: 1.3rem 1.7rem; }
 
-.content {
+.content, .content-c {
   margin-left: 9rem; }
-  .content .container-fluid {
+  .content .container-fluid, .content-c .container-fluid {
     padding: 1.5rem 3rem 0;
     width: 100%;
     margin: 0 auto; }
-    .content .container-fluid .page-title {
+    .content .container-fluid .page-title, .content-c .container-fluid .page-title {
       margin-bottom: 6rem;
       margin-top: -15px;
       margin-left: -30px;
@@ -818,7 +832,7 @@ li {
       padding: 15px 30px;
       background: #4A81FD;
       color: #fff; }
-  .content .card {
+  .content .card, .content-c .card {
     margin-bottom: 3rem;
     position: relative;
     padding: 0px;
@@ -826,12 +840,37 @@ li {
     border: 0 solid #fff;
     box-shadow: 2px 3px 10px 0px rgba(119, 119, 119, 0.1);
     border-radius: .25rem; }
-    .content .card .card-body {
+    .content .card .card-body, .content-c .card .card-body {
       padding: 2.5rem; }
-      .content .card .card-body .card-title {
+      .content .card .card-body .card-intro-title, .content-c .card .card-body .card-intro-title {
+        font-weight: bold;
+        font-size: 2rem !important; }
+      .content .card .card-body .card-title, .content-c .card .card-body .card-title {
         font-size: 1.8rem;
         line-height: 2.2rem;
         margin-bottom: 0.75rem; }
+
+.content-c {
+  margin-left: 0; }
+
+.dropdown {
+  position: relative; }
+
+.dropdown-menu[x-placement^="top"], .dropdown-menu[x-placement^="right"], .dropdown-menu[x-placement^="bottom"], .dropdown-menu[x-placement^="left"] {
+  right: auto;
+  bottom: auto; }
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: .25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #212529;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0; }
 
 .mt-5 {
   margin-top: 3rem !important; }
@@ -880,6 +919,10 @@ li {
 
 .float-none {
   float: none !important; }
+
+.light-g {
+  background: #43e794;
+  border-color: transparent; }
 
 .alert {
   border-radius: 4px;

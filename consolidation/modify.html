@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Email Campaign</title>
+    <title>Email Campaign Modification</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/query-builder.default.css">
     <link rel="stylesheet" href="css/main.css">
@@ -13,7 +13,7 @@
     
 </head>
 
-<body onload="setsize();">
+<body>
     <div class="wrapper">
 
         <div class="nav-header">
@@ -66,7 +66,7 @@
             <div class="container-fluid">
                 <div class="row page-title">
                     <div class="col">
-                        <h4>Email Campaign Generator</h4>
+                        <h4>Email Campaign Modification</h4>
                     </div>
                 </div>
                 <div class="row">
@@ -97,12 +97,14 @@
                                         <h5 class="m-t-10 hide">Format Helper:&nbsp;<span class="number"></span>
                                         </h5>
 <h5 class="mt-5">Create the email campaign criteria below</h5>
+<select name="" id="type" class="form-control">
+   
+</select>
                                         <div id="builder-basic" class="query-builder">
 
                                         </div>
                                         <button id="reset" class="btn btn-primary btn-ft danger">Reset</button>
                                         <button id="execute" class="btn btn-primary btn-ft">Execute</button>
-                                        <button id="nCampaign" class="btn btn-primary btn-ft light-g">Create New Campaign</button>
                                         
                                     </div>
                                 </div>
@@ -112,34 +114,22 @@
                   
                 </div>
 
-<div class="modal" id="cname" tabindex="-1" role="dialog">
+<div class="modal" id="error" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-                <div class="errors hidden center-block p-t-15" style="width:50%">
+                <div class="errors center-block p-t-15" style="width:50%">
                         <div class="alert alert-danger alert-dismissible fade in" role="alert">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                                         aria-hidden="true">&times;</span></button>
                                 <strong>Warning!</strong>
-                                <p class="errormsg" style="display: inline-block"></p>
+                                <p class="m-errormsg" style="display: inline-block"></p>
                             </div>
                 </div>
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Attention Required.</h5>
+                <h5 class="modal-title" id="exampleModalLabel">An error occured.</h5>
                
             </div>
-            <div class="modal-body">
-                <form _lpchecked="1">
-                    <div class="form-group">
-                        <label for="recipient-name" class="text-label">Campaign Name</label>
-                        <input type="text" class="form-control" id="campaign" maxlength="30" autocomplete="false">
-                        <p class="form-text campaignName">A campaign name is required to continue.</p>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-               
-                <button type="button" id="continue" class="btn btn-primary">Continue</button>
-            </div>
+        
         </div>
     </div>
 </div>
@@ -158,26 +148,20 @@
         </div>
     </div>
 </div>
-
             </div>
         </div>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
     <script src="./js/jQuery.extendext.min.js"></script>
     <script src="./js/sql-parser.min.js"></script>
     <script src="./js/query-builder.standalone.js"></script>
     <script src="./js/queries.js"></script>
-  
    <script src="./js/moment.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <script src="https://unpkg.com/v8n/dist/v8n.min.js"></script>
-    <script src="./js/helpers.js"></script>
     <script src="./js/index.js"></script>
 
 </body>

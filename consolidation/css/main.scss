@@ -10,7 +10,9 @@
 @import './querybuilder/query';
 
 
-
+html{
+    overflow: hidden;
+}
 
 
 body {
@@ -90,6 +92,12 @@ li {
     }
 }
 
+.nav-header-c{
+    @extend .nav-header;
+    height: 6rem;
+    
+}
+
 .header {
     background-color: $white;
     width: calc(100% - 6rem);
@@ -113,6 +121,12 @@ li {
         img {
             max-width: 10rem;
         }
+    }
+
+    .header-left-c{
+        @extend .header-left;
+        float: none;
+        text-align: center;
     }
 
     .header-right {
@@ -143,6 +157,16 @@ li {
     }
 }
 
+.header-c{
+    @extend .header;
+    box-shadow: none;
+
+    .header-left-c{
+        p{
+            font-size: 2.4rem;
+        }
+    }
+}
 .sidebar {
 
 
@@ -270,6 +294,11 @@ li {
         .card-body {
             padding: 2.5rem;
 
+            .card-intro-title {
+                font-weight: bold;
+                font-size: 2rem !important;
+            }
+
             .card-title {
                 font-size: 1.8rem;
                 line-height: 2.2rem;
@@ -279,6 +308,32 @@ li {
     }
 }
 
+.content-c{
+    @extend .content;
+    margin-left: 0;
+}
+
+.dropdown{
+    position: relative;
+}
+
+.dropdown-menu[x-placement^="top"], .dropdown-menu[x-placement^="right"], .dropdown-menu[x-placement^="bottom"], .dropdown-menu[x-placement^="left"] {
+    right: auto;
+    bottom: auto;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: .25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
 
 .mt-5 {
     margin-top: 3rem !important;
@@ -338,7 +393,10 @@ li {
     float: none !important;
 }
 
-
+.light-g{
+    background: $light-green;
+    border-color: transparent;
+}
 
 .alert {
     border-radius: 4px;
