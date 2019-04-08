@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SMS REPORT</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/b-1.5.4/b-flash-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/datatables.min.css"/>
     <link rel="stylesheet" href="css/main.css">
 
@@ -45,10 +46,10 @@
         <div class="sidebar">
             <div class="scroll">
                 <ul>
-                    <li class="active">
+                    <li>
                         <a href="">
-                            <em class="mdi mdi-chart-areaspline">
-                            </em>
+                            <i class="mdi mdi-chart-areaspline">
+                            </i>
                             <br>
                             <span>Consolidation Report</span>
                         </a>
@@ -57,8 +58,8 @@
 
                     <li>
                             <a href="">
-                                <em class="mdi mdi-chart-bar-stacked">
-                                </em>
+                                <i class="mdi mdi-chart-bar-stacked">
+                                </i>
                                 <br>
                                 <span>Avaya File Generation & Report</span>
                             </a>
@@ -66,7 +67,7 @@
 
                         <li>
                             <a href="" class="has-arrow">
-                            <em class="mdi mdi-email"></em>
+                            <i class="mdi mdi-email"></i>
                             <br>
                             <span>Email Functions</span>
                         </a>
@@ -76,7 +77,14 @@
                         </ul>
                         </li>
 
-
+                        <li class="active">
+                            <a href="">
+                                <i class="mdi mdi-android-messages">
+                                </i>
+                                <br>
+                                <span>SMS Report</span>
+                            </a>
+                        </li>
 
                 </ul>
             </div>
@@ -86,7 +94,7 @@
             <div class="container-fluid">
                 <div class="row page-title">
                     <div class="col">
-                        <h4>Consolidation Report</h4>
+                        <h4>SMS Report</h4>
                     </div>
                 </div>
                 <div class="row">
@@ -101,7 +109,7 @@
                                         </div>
                             </div>
                             <div class="card-body">
-                                <div class="card-title">Consolidation Report Date Picker</div>
+                                <div class="card-title"><strong>Select dates and campaign type<strong></strong></div>
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h5 class="mt-5">
@@ -116,17 +124,15 @@
                                         </h5>
                                         <input type="text" class="form-control enddate">
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <h5 class="mt-5">Campaign Type</h5>
-                                        <select name="" id="type" class="form-control">
+                                        <select name="" id="ctype" class="form-control">
                                             <option value="-1" disabled selected class="text-muted" style="display: none;">Select Campaign Type</option>
                                             <option value="CARDS">CARD</option>
                                             <option value="LOANS">LOANS</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-2">
-
-
+                                    <div class="col-md-3 text-center">
 
                                         <button id="submit" class="btn btn-primary btn-ft">Submit</button>
 
@@ -136,31 +142,26 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-12 hide">
-                        <div class="card">
+                    <div class="col-lg-12">
+                        <div class="card hidden">
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table id="myTable">
-                                            <caption class="card-title">Dialer Performance Report</caption>
+                                            <caption class="card-title">SMS Performance Report</caption>
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Extn.</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                              
+                                                <th>Mobile #</th>
+                                                <th>Carrier</th>
+                                                <th>Country Code</th>
+                                                <th>WI #</th> 
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Extn.</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
+                                                <th>Mobile #</th>
+                                                <th>Carrier</th>
+                                                <th>Country Code</th>
+                                                <th>WI #</th> 
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -177,7 +178,7 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
  
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
@@ -187,7 +188,7 @@
 
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
+    <script src="./js/bootstrap-datetimepicker.js"></script>
     <script src="./js/sms.js"></script>
 
     <script>

@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
-@import url('../css/materialdesignicons.min');
+@import url('../css/materialdesignicons.min.css');
 
-@import url('../css/bootstrap-datepicker.css');
+
 
 @import './abstracts/variables';
 @import './mixins/mixins';
 @import './table/table';
 @import './modal/modal';
 @import './querybuilder/query';
+
 
 
 html{
@@ -218,7 +219,7 @@ li {
 
                 a {
 
-                    padding: 1.3rem 1.5rem;
+                    padding: 1.6rem 2.1rem;
                     border-left: 3px solid transparent;
                     position: relative;
                     display: block;
