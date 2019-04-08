@@ -12,6 +12,7 @@
 
 html{
     overflow: hidden;
+    background-color: white !important;
 }
 
 .pb-5, .py-5 {
@@ -25,17 +26,11 @@ body {
     font-size: 1.4rem;
     height: 100%;
     background-color: $light-white;
-    height: 100%;
     box-sizing: border-box;
     position: relative;
     max-width: 100%;
-    font-size: 400;
-
 }
 
-html {
-    background-color: white !important;
-}
 
 li {
     list-style: none;
@@ -109,7 +104,6 @@ li {
     margin-left: $uniform-width;
     position: relative;
     padding: 0 1.5rem;
-    background: #fff;
     box-shadow: 0 0 1.5rem rgba(120, 130, 140, 0.13);
 
     .header-content {
@@ -150,7 +144,6 @@ li {
             top: -1.6rem;
             position: relative;
             display: inline-block;
-            padding: 0 .5rem;
             color: #464a53;
             text-decoration: none;
             background-color: transparent;

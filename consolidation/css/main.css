@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins");
-@import url("../css/materialdesignicons.min");
-@import url("../css/bootstrap-datepicker.css");
+@import url("../css/materialdesignicons.min.css");
+@import url("../css/bootstrap-datepicker.min.css");
 /*
 This .scss loop will create "margin helpers" and "padding helpers" for use in your web projects.
 It will generate several classes such as:
@@ -649,7 +649,8 @@ table.dataTable.no-footer {
     color: #fff !important; }
 
 html {
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: white !important; }
 
 .pb-5, .py-5 {
   padding-bottom: 3rem !important; }
@@ -661,14 +662,9 @@ body {
   font-size: 1.4rem;
   height: 100%;
   background-color: #EEF1F8;
-  height: 100%;
   box-sizing: border-box;
   position: relative;
-  max-width: 100%;
-  font-size: 400; }
-
-html {
-  background-color: white !important; }
+  max-width: 100%; }
 
 li {
   list-style: none; }
@@ -725,7 +721,6 @@ li {
   margin-left: 11rem;
   position: relative;
   padding: 0 1.5rem;
-  background: #fff;
   box-shadow: 0 0 1.5rem rgba(120, 130, 140, 0.13); }
   .header .header-content, .header-c .header-content {
     margin-left: 0; }
@@ -751,7 +746,6 @@ li {
       top: -1.6rem;
       position: relative;
       display: inline-block;
-      padding: 0 .5rem;
       color: #464a53;
       text-decoration: none;
       background-color: transparent;
